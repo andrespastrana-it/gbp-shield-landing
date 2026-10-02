@@ -47,12 +47,12 @@
       {
         "@type": "Question",
         "name": "How is GBP Shield different from GatherUp Review Defense?",
-        "acceptedAnswer": { "@type": "Answer", "text": "GatherUp is a broader review platform, and Review Defense runs roughly $50–$375/mo. Stay there if it already covers you. GBP Shield is narrower: compliant post-visit velocity, POS/CRM-backed evidence packs, and restriction/attack recovery for high-ticket dental, med spa, and HVAC businesses." }
+        "acceptedAnswer": { "@type": "Answer", "text": "GatherUp is a broader review platform, and Review Defense runs roughly $50–$375/mo. If it already covers you, stay there. GBP Shield is narrower: evidence packs built from your own visit and POS records, for high-ticket dental, med spa, and HVAC businesses." }
       },
       {
         "@type": "Question",
         "name": "Is this compliant with Google’s review policies?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, by design. We don’t incentivize, gate, or buy reviews, and we don’t auto-post AI replies. Asks go out after real visits, are optional for the customer, and are velocity-throttled." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, by design. We don’t incentivize, gate, or buy reviews, and we don’t auto-post AI replies. Asks only go out after real visits, they’re optional for the customer, and they’re paced so they never spike." }
       },
       {
         "@type": "Question",
@@ -61,13 +61,8 @@
       },
       {
         "@type": "Question",
-        "name": "Do you sell NFC cards, review kiosks, or AI reply bots?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No — they’re out of scope on purpose. We don’t sell NFC cards, policy-breaking QR gimmicks, or automated AI replies." }
-      },
-      {
-        "@type": "Question",
         "name": "What do the first 20 waitlist members get?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The first 20 qualifying dental, med spa, and HVAC owners get a free evidence-pack review (if you have an open fake-review case) and a 15-minute GBP risk teardown. Validation pricing is locked for 6 months if you convert." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The first 20 qualifying dental, med spa, and HVAC owners get a free evidence-pack review (if you have an open fake-review case) and a 15-minute GBP risk teardown. Early pricing is locked for 6 months if you convert." }
       },
       {
         "@type": "Question",
@@ -197,28 +192,25 @@
     @media (min-width: 800px) { .mobile-menu { display: none !important; } }
     @media (max-width: 379px) { .hide-xs { display: none; } }
 
-    /* Hero */
-    .hero { position: relative; padding: 76px 0 96px; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr); gap: 64px; align-items: center; }
+    /* The story sections (hero through never-do) share one reading column. */
+    .measure { max-width: 42rem; margin-inline: auto; }
+
+    /* Hero: the problem moment, no product visual */
+    .hero { position: relative; padding: 96px 0 40px; }
     .eyebrow { color: var(--muted); font-size: .95rem; font-weight: 500; }
     .hero h1 {
-      margin: 16px 0 20px; font-weight: 600;
-      font-size: clamp(2.4rem, 5.2vw, 3.75rem); line-height: 1.06; letter-spacing: -.03em; text-wrap: balance;
+      margin-top: 16px; font-weight: 600;
+      font-size: clamp(2.3rem, 5vw, 3.25rem); line-height: 1.08; letter-spacing: -.03em;
     }
-    .lead { max-width: 34em; color: var(--muted); font-size: clamp(1.06rem, 1.5vw, 1.2rem); line-height: 1.6; text-wrap: pretty; }
+    .hero h1 span { display: block; text-wrap: balance; }
+    .hero-also { margin-top: 14px; color: var(--subtle); font-size: clamp(1.02rem, 1.4vw, 1.14rem); }
+    .lead { margin-top: 28px; color: var(--muted); font-size: clamp(1.06rem, 1.5vw, 1.18rem); line-height: 1.65; text-wrap: pretty; }
+    .lead + .lead { margin-top: 14px; color: var(--text); }
     .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-    .cta-note { max-width: 32em; margin-top: 16px; color: var(--muted); font-size: .92rem; }
-    .cta-note strong { color: var(--text); font-weight: 600; }
-    .trust { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 0; padding: 0; }
-    .trust li {
-      display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px; border-radius: 8px;
-      border: 1px solid var(--line); color: var(--muted); font-size: .84rem; font-weight: 500;
-    }
-    .trust .icon { width: 15px; height: 15px; color: var(--subtle); stroke-width: 2; }
+    .trust-line { margin-top: 18px; color: var(--subtle); font-size: .9rem; }
 
-    /* Hero visual: illustrative evidence pack */
-    .visual { position: relative; isolation: isolate; width: 100%; max-width: 540px; margin-inline: auto; }
-    .visual figure { margin: 0; }
+    /* Evidence pack (illustrative), the centerpiece of #pack */
+    .visual { position: relative; isolation: isolate; width: 100%; margin: 40px 0 0; }
     .visual figcaption { margin-top: 12px; text-align: center; color: var(--subtle); font-size: .78rem; }
     .pack { position: relative; padding: 18px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--surface); }
     .pack-head {
@@ -279,46 +271,27 @@
       margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--subtle); font-size: .8rem;
     }
     .mini-btn { padding: 6px 10px; border-radius: 6px; border: 1px solid var(--line-2); color: var(--text); font-size: .78rem; font-weight: 600; white-space: nowrap; }
-    /* Static callout; z-index keeps it above the (positioned) pack it overlaps. */
-    .float {
-      position: absolute; z-index: 1; display: flex; align-items: center; gap: 10px; padding: 10px 14px 10px 10px; border-radius: 10px;
-      background: var(--surface-2); border: 1px solid var(--line-2);
-      box-shadow: 0 16px 32px -20px rgba(0, 0, 0, .9);
-    }
-    .float strong { display: block; font-size: .8rem; font-weight: 600; line-height: 1.3; white-space: nowrap; }
-    .float small { display: block; color: var(--subtle); font-size: .72rem; line-height: 1.3; white-space: nowrap; }
-    .float-ic { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 6px; }
-    .float-ic .icon { width: 17px; height: 17px; stroke-width: 2.2; }
-    .float-alert { top: -26px; left: -30px; }
-    .float-alert .float-ic { color: var(--danger); background: rgba(255, 138, 128, .12); }
 
     @media (max-width: 959px) {
-      .hero { padding: 44px 0 72px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 72px; }
+      .hero { padding: 56px 0 32px; }
     }
     @media (max-width: 640px) {
       .container { padding-inline: 18px; }
       .cta-row .btn { width: 100%; }
       .pack { padding: 14px; }
-      .float-alert { left: 10px; top: -30px; }
     }
 
-    /* Hero visual motion: one shot, no loops. JS adds .is-in the first time the visual is 20% in view; the pack (with
-       its static alert) fades in, a scan line sweeps it once, each check row resolves as the line passes, and the
-       "Ready to file" chip stamps last (~2.4s total). Transform/opacity only (row shimmer is a paint-only background
-       sweep), so no layout shift. Keyframes fill backwards only, so finished elements sit at their resting styles. */
+    /* Pack motion: one shot, no loops. JS adds .is-in the first time the pack is about a third in view; it fades in,
+       a scan line sweeps it once, each check row resolves as the line passes, and the "Ready to file" chip stamps
+       last (~2.4s total). Transform/opacity only (row shimmer is a paint-only background sweep), so no layout shift.
+       Keyframes fill backwards only, so finished elements sit at their resting styles. */
     .visual { --ease-out: cubic-bezier(.22, 1, .36, 1); }
     @media (prefers-reduced-motion: no-preference) {
-      .js .visual:not(.is-in) :is(.pack, .float) { opacity: 0; }
+      .js .visual:not(.is-in) .pack { opacity: 0; }
     }
     @keyframes ep-pack-in { from { opacity: 0; transform: translateY(16px) scale(.985); } }
-    @keyframes ep-rise { from { opacity: 0; transform: translateY(8px); } }
     @keyframes ep-stamp { from { opacity: 0; transform: scale(.86); } }
-    .visual.is-in :is(.pack, .float) { animation: ep-pack-in .6s var(--ease-out) 40ms backwards; }
-    .visual.is-in .review { animation: ep-rise .46s var(--ease-out) 320ms backwards; }
-    .visual.is-in .checks li { animation: ep-rise .42s var(--ease-out) var(--row-at) backwards; }
-    .visual.is-in .cite { animation: ep-rise .42s var(--ease-out) 1.75s backwards; }
-    .visual.is-in .pack-foot { animation: ep-rise .42s var(--ease-out) 1.85s backwards; }
+    .visual.is-in .pack { animation: ep-pack-in .6s var(--ease-out) 40ms backwards; }
     .visual.is-in .tag-gold { animation: ep-stamp .36s var(--ease-out) 2.05s backwards; }
 
     /* Scan → resolve: a line sweeps the pack, the review gets Flagged, then each check row shimmers with a dim
@@ -353,75 +326,68 @@
 
     /* Sections */
     .section { padding: 104px 0; }
-    .section-tight { padding: 40px 0 72px; }
-    .section-head { max-width: 660px; margin-bottom: 48px; }
-    .section-head.center { margin-inline: auto; text-align: center; }
+    .section-short { padding: 80px 0; }
+    .band { border-block: 1px solid var(--line); background: rgba(255, 255, 255, .015); }
     .kicker { margin-bottom: 12px; color: var(--subtle); font-size: .92rem; font-weight: 500; }
     h2 { font-weight: 600; font-size: clamp(1.75rem, 3.2vw, 2.4rem); line-height: 1.15; letter-spacing: -.025em; text-wrap: balance; }
     .sub { margin-top: 16px; color: var(--muted); font-size: 1.06rem; text-wrap: pretty; }
     h3 { font-size: 1.08rem; font-weight: 600; line-height: 1.35; letter-spacing: -.01em; }
     @media (max-width: 700px) {
       .section { padding: 72px 0; }
-      .section-head { margin-bottom: 36px; }
+      .section-short { padding: 56px 0; }
     }
 
-    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .card { padding: 24px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); }
-    .card p { margin-top: 8px; color: var(--muted); font-size: .96rem; }
-    @media (max-width: 899px) { .grid-3 { grid-template-columns: 1fr; } }
+    /* Story: prose, not cards */
+    .path { padding: 40px 0 96px; }
+    .prose { margin-top: 24px; }
+    .prose p { color: var(--muted); font-size: 1.08rem; line-height: 1.7; text-wrap: pretty; }
+    .prose p + p { margin-top: 1.1em; }
+    @media (max-width: 700px) { .path { padding: 32px 0 72px; } }
 
-    /* How it works: 4 step cards */
-    .band { border-block: 1px solid var(--line); background: rgba(255, 255, 255, .015); }
-    .steps { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; }
-    .step { padding: 24px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); }
-    .step-num { display: block; margin-bottom: 14px; color: var(--subtle); font-size: .85rem; font-weight: 600; font-variant-numeric: tabular-nums; }
-    .step p { margin-top: 8px; color: var(--muted); font-size: .95rem; }
-    @media (max-width: 1023px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 600px) { .steps { grid-template-columns: 1fr; } }
+    /* Under the pack: how one gets built, as labeled lines */
+    .build { list-style: none; margin: 40px 0 0; padding: 0; border-top: 1px solid var(--line); }
+    .build li { display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .build strong { font-weight: 600; }
+    .build span { color: var(--muted); }
+    .quiet { margin-top: 28px; color: var(--subtle); font-size: .96rem; text-wrap: pretty; }
+    @media (max-width: 600px) { .build li { grid-template-columns: 1fr; } }
 
-    /* Anti-positioning */
-    .lines {
-      display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 40px; align-items: center;
-      padding: 40px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface);
-    }
-    .lines h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); }
-    .never { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; }
+    /* Never-do */
+    .never { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 28px 0 0; padding: 0; }
     .never li {
       display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 10px;
       border: 1px solid var(--line); font-size: .96rem; font-weight: 500;
     }
     .never .x { flex: none; display: grid; color: var(--danger); }
     .never .x .icon { width: 16px; height: 16px; stroke-width: 2.2; }
-    @media (max-width: 899px) { .lines { grid-template-columns: 1fr; padding: 28px; gap: 28px; } }
-    @media (max-width: 520px) { .never { grid-template-columns: 1fr; } .lines { padding: 22px; } }
+    @media (max-width: 520px) { .never { grid-template-columns: 1fr; } }
 
-    /* Pricing */
-    .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; padding-top: 14px; }
+    /* Pricing: quiet. Starter up front; Pro and Concierge behind a disclosure. */
     .plan {
-      position: relative; display: flex; flex-direction: column; padding: 30px 28px 28px;
+      display: flex; flex-direction: column; padding: 28px;
       border-radius: 12px; border: 1px solid var(--line); background: var(--surface);
     }
-    .plan-featured { border-color: #46606d; }
-    .badge {
-      position: absolute; top: -12px; left: 26px; padding: 4px 10px; border-radius: 6px;
-      border: 1px solid #46606d; background: var(--surface-2); color: var(--text);
-      font-size: .74rem; font-weight: 600; white-space: nowrap;
-    }
-    .plan-desc { margin-top: 6px; color: var(--muted); font-size: .93rem; min-height: 3em; }
-    .price { margin: 18px 0 2px; font-size: 2.6rem; font-weight: 600; line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
-    .price small { margin-left: 2px; color: var(--subtle); font-size: .95rem; font-weight: 500; letter-spacing: 0; }
-    .plan ul { list-style: none; flex: 1; display: grid; align-content: start; gap: 10px; margin: 22px 0 28px; padding: 22px 0 0; border-top: 1px solid var(--line); }
+    .plan-main { margin-top: 36px; }
+    .plan-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; }
+    .plan-top > div { flex: 1 1 18rem; min-width: 0; }
+    .plan-desc { margin-top: 6px; color: var(--muted); font-size: .93rem; }
+    .price { font-size: 2rem; font-weight: 600; line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .price small { margin-left: 2px; color: var(--subtle); font-size: .9rem; font-weight: 500; letter-spacing: 0; }
+    .plan ul { list-style: none; flex: 1; display: grid; align-content: start; gap: 10px; margin: 20px 0 24px; padding: 20px 0 0; border-top: 1px solid var(--line); }
     .plan li { display: flex; gap: 10px; color: var(--muted); font-size: .94rem; line-height: 1.45; }
     .plan li .icon { width: 17px; height: 17px; margin-top: 2px; color: var(--subtle); stroke-width: 2.2; }
     .plan li.plus { color: var(--text); font-weight: 600; }
-    .pricing-foot { display: grid; justify-items: center; gap: 10px; margin-top: 44px; text-align: center; }
-    .lock-line { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
-    .lock-line .icon { width: 18px; height: 18px; color: var(--subtle); }
-    .addon { max-width: 46em; color: var(--muted); font-size: .95rem; }
+    .plan .btn { align-self: flex-start; }
+    .more.plans-more { margin: 14px 0 0; }
+    .plans-more-body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; padding: 16px; }
+    .plans-more .plan { padding: 22px; }
+    .plans-more .plan .btn { align-self: stretch; }
+    .addon { margin-top: 24px; color: var(--muted); font-size: .95rem; }
     .addon strong { color: var(--text); font-weight: 600; }
-    @media (max-width: 899px) {
-      .plans { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; gap: 28px; }
-      .plan-desc { min-height: 0; }
+    @media (min-width: 640px) { .plan-main ul { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; } }
+    @media (max-width: 639px) {
+      .plans-more-body { grid-template-columns: 1fr; padding: 14px; }
+      .plan .btn { align-self: stretch; }
     }
 
     /* FAQ */
@@ -580,9 +546,7 @@
     <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" /></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></symbol>
     <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.4 3 8.2 7 9.5 4-1.3 7-5.1 7-9.5V6z" /><path d="m9 12 2 2 4-4" /></symbol>
     <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /><path d="m9 14.5 2 2 4-4" /></symbol>
-    <symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 7 6 6 4-4 8 8" /><path d="M21 11v6h-6" /></symbol>
     <symbol id="i-warn" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" /><path d="M12 9v4M12 17h.01" /></symbol>
     <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2" /><path d="M8 10.5v-3a4 4 0 0 1 8 0v3" /></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></symbol>
@@ -599,7 +563,7 @@
         <span>GBP Shield</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#how">How it works</a>
+        <a href="#pack">Evidence pack</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -610,39 +574,57 @@
       </button>
     </div>
     <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" hidden>
-      <a href="#how">How it works</a>
+      <a href="#pack">Evidence pack</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
   </header>
 
   <main id="main">
-    <!-- Hero -->
+    <!-- 1. The problem moment -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Dental · Med spa · HVAC</p>
-          <h1 id="hero-title">Protect your Map Pack from fake Google reviews.</h1>
-          <p class="lead">GBP Shield builds visit-linked evidence packs for fake-review appeals, sends compliant post-visit review asks, and guides your recovery when an attack or restriction hits.</p>
+      <div class="container">
+        <div class="measure">
+          <p class="eyebrow">For local dental, med spa &amp; HVAC owners</p>
+          <h1 id="hero-title"><span>Three new 1★ reviews.</span> <span>None of them sat in your chair.</span></h1>
+          <p class="hero-also">Or booked a facial. Or let your tech in the door.</p>
+          <p class="lead">Monday, 7:40 a.m., and your 4.8 is a 4.6. They all landed over the weekend, hours apart, from accounts with one review each. You check the schedule and the POS: no names, no visits, no payments.</p>
+          <p class="lead">GBP Shield turns that gap into a visit-linked evidence pack for your appeal, and keeps your real review asks inside Google’s rules while you rebuild.</p>
           <div class="cta-row">
             <a class="btn btn-primary btn-lg" href="#waitlist">Join the waitlist<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></a>
-            <a class="btn btn-ghost btn-lg" href="#how">See how it works</a>
+            <a class="btn btn-ghost btn-lg" href="#pack">See an evidence pack</a>
           </div>
-          <p class="cta-note">First 20 dental, med spa &amp; HVAC owners get a <strong>free evidence-pack review</strong> + a <strong>15-min GBP risk teardown</strong>.</p>
-          <ul class="trust" aria-label="What we stand by">
-            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield" /></svg>No guaranteed removals</li>
-            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield" /></svg>Policy-aligned asks</li>
-            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield" /></svg>No NFC / AI reply bots</li>
-          </ul>
+          <p class="trust-line">No removal guarantees. No NFC gimmicks. No AI reply bots.</p>
         </div>
+      </div>
+    </section>
 
-        <div class="visual">
-          <div class="float float-alert" aria-hidden="true">
-            <span class="float-ic"><svg class="icon"><use href="#i-trend" /></svg></span>
-            <span><strong>5 new 1★ reviews in 48h</strong><small>Rating 4.8 → 4.4 · Map Pack at risk</small></span>
+    <!-- 2. What usually happens next -->
+    <section class="path" aria-labelledby="path-title">
+      <div class="container">
+        <div class="measure">
+          <p class="kicker">The usual path</p>
+          <h2 id="path-title">You report it. You wait. Someone promises Google will listen to them instead.</h2>
+          <div class="prose">
+            <p>You flag the reviews in Maps and write a calm public reply, so whoever reads it next sees you’re reasonable. A week later all three are still up, and a reputation vendor is in your inbox offering to “get them down.”</p>
+            <p>Here’s what that pitch skips. Google doesn’t take a review down because it’s unfair; it acts on evidence that the review breaks policy. No matching visit. No payment on record. The same account leaving 1★s across town in the same 48 hours. A clean trail of what you reported, and when. Nobody controls Google’s decision, so anyone guaranteeing a removal is guessing.</p>
+            <p>And it lands on high-ticket locals on purpose. When a dental practice, med spa, or HVAC shop slips out of the Map Pack, the calls go to whoever’s next on the map. Extortion rings and competitor attacks know exactly what a few spots are worth.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. The artifact -->
+    <section class="section band" id="pack" aria-labelledby="artifact-title">
+      <div class="container">
+        <div class="measure">
+          <p class="kicker">The artifact</p>
+          <h2 id="artifact-title">An evidence pack is the paper trail for one shady review.</h2>
+          <div class="prose">
+            <p>Not a vanity dashboard. One appeal folder per review: the review itself, the appointment no-match, the POS gap, notes on the cluster, dated screenshots, and the policy it breaks, ready to file. Here’s a sample.</p>
           </div>
 
-          <figure>
+          <figure class="visual">
             <div class="pack" role="img" aria-label="Illustrative GBP Shield evidence pack: a flagged one-star review with no matching appointment, no POS record, a reviewer cluster pattern, and a citation of Google's fake engagement policy, ready to file as an appeal.">
               <div class="pack-head">
                 <div class="pack-title">
@@ -698,75 +680,24 @@
             </div>
             <figcaption>Illustrative sample — not a real case or outcome.</figcaption>
           </figure>
+
+          <ul class="build">
+            <li><strong>Match visits</strong><span>We check each reviewer against your schedule and POS. No visit and no payment is the first exhibit.</span></li>
+            <li><strong>Capture the pattern</strong><span>Reviewer history, timing across nearby businesses, and dated screenshots, saved before anything gets edited or deleted.</span></li>
+            <li><strong>Draft the appeal</strong><span>A plain-language appeal that cites the Google policy the review breaks, with every exhibit attached.</span></li>
+          </ul>
+
+          <p class="quiet">Behind it: you connect your PMS, POS, or CRM, or upload an appointment export, and we only ever work from real visits. That same list drives paced, policy-safe review asks after appointments, so your rating rebuilds from people who actually came in. If it turns into a flood, an extortion attempt, or a profile restriction, there’s a playbook for that too: document, report, appeal, rebuild.</p>
         </div>
       </div>
     </section>
 
-    <!-- Problem (demoted from hero) -->
-    <section class="section-tight" aria-labelledby="why-title">
+    <!-- 4. Hard lines -->
+    <section class="section-short" aria-labelledby="never-title">
       <div class="container">
-        <div class="section-head">
-          <p class="kicker">Why it matters</p>
-          <h2 id="why-title">A Map Pack takes years to earn and a weekend to lose.</h2>
-        </div>
-        <div class="grid-3">
-          <article class="card">
-            <h3>One fake 1★ cluster can sink you overnight</h3>
-            <p>Extortion rings and competitor attacks go after high-ticket locals — dentists, med spas, and HVAC contractors.</p>
-          </article>
-          <article class="card">
-            <h3>Google reads evidence, not outrage</h3>
-            <p>No matching appointment, no POS ticket, conflict of interest, spam patterns. “This feels unfair” doesn’t get a review removed.</p>
-          </article>
-          <article class="card">
-            <h3>“Guaranteed removal” is a trap</h3>
-            <p>Nobody controls Google’s decisions — anyone promising removals is guessing. We maximize appeal quality instead.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- How it works -->
-    <section class="section band" id="how" aria-labelledby="how-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">How it works</p>
-          <h2 id="how-title">Four steps. All inside Google’s rules.</h2>
-        </div>
-        <ol class="steps">
-          <li class="step">
-            <span class="step-num" aria-hidden="true">01</span>
-            <h3>Connect your visit source</h3>
-            <p>Link your PMS, POS, or CRM — or upload an appointment export. We map real visits to review asks and never invent patients.</p>
-          </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">02</span>
-            <h3>Send compliant, paced asks</h3>
-            <p>Post-visit requests, velocity-throttled and worded inside Google’s policies. No incentives, no gating, no AI reply spam.</p>
-          </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">03</span>
-            <h3>Build an evidence pack</h3>
-            <p>When a review smells fake: appointment no-match, POS absence, reviewer patterns, screenshots, and a policy-cited appeal draft.</p>
-          </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">04</span>
-            <h3>Recover from attacks</h3>
-            <p>Playbooks for review floods, extortion, and GBP restrictions: document, report, appeal, then rebuild legitimate velocity.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- Anti-positioning -->
-    <section class="section" aria-labelledby="lines-title">
-      <div class="container">
-        <div class="lines">
-          <div>
-            <p class="kicker">Our lines</p>
-            <h2 id="lines-title">What GBP Shield will never do.</h2>
-            <p class="sub">Shortcuts like these put your profile at risk. We’d rather lose the sale.</p>
-          </div>
+        <div class="measure">
+          <h2 id="never-title">What we will never sell you.</h2>
+          <p class="sub">We’d rather lose the sale.</p>
           <ul class="never">
             <li><span class="x"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x" /></svg></span>Guarantee a review gets removed</li>
             <li><span class="x"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x" /></svg></span>Buy, gate, or incentivize reviews</li>
@@ -777,116 +708,13 @@
       </div>
     </section>
 
-    <!-- Pricing -->
-    <section class="section band" id="pricing" aria-labelledby="pricing-title">
-      <div class="container">
-        <div class="section-head center">
-          <p class="kicker">Pricing</p>
-          <h2 id="pricing-title">Simple plans for the validation cohort.</h2>
-          <p class="sub">Joining the waitlist is free. Tell us which plan you’d most likely start on.</p>
-        </div>
-
-        <div class="plans">
-          <article class="plan plan-featured" aria-labelledby="plan-starter">
-            <span class="badge">Recommended for validation</span>
-            <h3 id="plan-starter">Shield Starter</h3>
-            <p class="plan-desc">One location that wants compliant velocity and a ready playbook.</p>
-            <p class="price">$79<small>/mo</small></p>
-            <ul>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>1 location</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Compliant post-visit ask flow</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Evidence-pack templates</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Restriction &amp; attack playbook</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Email support</li>
-            </ul>
-            <a class="btn btn-primary btn-block" href="#waitlist" data-plan="starter">Join the waitlist<span class="sr-only"> for Shield Starter</span></a>
-          </article>
-
-          <article class="plan" aria-labelledby="plan-pro">
-            <h3 id="plan-pro">Shield Pro</h3>
-            <p class="plan-desc">Practices with a PMS, POS, or CRM to connect for stronger evidence.</p>
-            <p class="price">$149<small>/mo</small></p>
-            <ul>
-              <li class="plus">Everything in Starter, plus:</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>POS / CRM connect</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Up to 2 locations</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Priority evidence-pack assist (2/mo)</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Slack + email support</li>
-            </ul>
-            <a class="btn btn-ghost btn-block" href="#waitlist" data-plan="pro">Join the waitlist<span class="sr-only"> for Shield Pro</span></a>
-          </article>
-
-          <article class="plan" aria-labelledby="plan-concierge">
-            <h3 id="plan-concierge">Shield Concierge</h3>
-            <p class="plan-desc">Multi-location groups, or owners under active attack.</p>
-            <p class="price">$299<small>/mo</small></p>
-            <ul>
-              <li class="plus">Everything in Pro, plus:</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Multi-location (fair use)</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Hands-on evidence packs</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Attack &amp; restriction war-room</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Quarterly GBP health review</li>
-            </ul>
-            <a class="btn btn-ghost btn-block" href="#waitlist" data-plan="concierge">Join the waitlist<span class="sr-only"> for Shield Concierge</span></a>
-          </article>
-        </div>
-
-        <div class="pricing-foot">
-          <p class="lock-line"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-lock" /></svg>Validation pricing · locked 6 months if you convert.</p>
-          <p class="addon"><strong>Add-on: Evidence Pack Concierge — $199</strong> per open fake-review case. The first 20 qualifying owners get their evidence-pack review free.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
-      <div class="container faq-grid">
-        <div class="faq-side">
-          <p class="kicker">FAQ</p>
-          <h2 id="faq-title">Straight answers.</h2>
-          <p class="sub">Including when GBP Shield isn’t the right fit for you.</p>
-          <a class="btn btn-ghost" href="#waitlist">Join the waitlist</a>
-        </div>
-        <div class="faq-list">
-          <details>
-            <summary>Do you guarantee Google will remove a fake review?<span class="plus-ic" aria-hidden="true"></span></summary>
-            <p class="answer">No. Nobody can — Google alone decides. We maximize the quality of your report and appeal with policy citations and visit/POS no-match evidence.</p>
-          </details>
-          <details>
-            <summary>How is GBP Shield different from GatherUp Review Defense?<span class="plus-ic" aria-hidden="true"></span></summary>
-            <p class="answer">GatherUp is a broader review platform, and Review Defense runs roughly $50–$375/mo. Stay there if it already covers you. GBP Shield is narrower: compliant post-visit velocity, POS/CRM-backed evidence packs, and restriction/attack recovery for high-ticket dental, med spa, and HVAC businesses.</p>
-          </details>
-          <details>
-            <summary>Is this compliant with Google’s review policies?<span class="plus-ic" aria-hidden="true"></span></summary>
-            <p class="answer">Yes, by design. We don’t incentivize, gate, or buy reviews, and we don’t auto-post AI replies. Asks go out after real visits, are optional for the customer, and are velocity-throttled.</p>
-          </details>
-          <details>
-            <summary>What if someone is extorting me with fake 1-star reviews?<span class="plus-ic" aria-hidden="true"></span></summary>
-            <p class="answer">Don’t pay. Document every message, report it through Google’s merchant extortion channels, and back the report with an evidence pack and a clear report trail. Concierge includes an attack war-room playbook.</p>
-          </details>
-          <details>
-            <summary>Do you sell NFC cards, review kiosks, or AI reply bots?<span class="plus-ic" aria-hidden="true"></span></summary>
-            <p class="answer">No — they’re out of scope on purpose. We don’t sell NFC cards, policy-breaking QR gimmicks, or automated AI replies.</p>
-          </details>
-          <details>
-            <summary>What do the first 20 waitlist members get?<span class="plus-ic" aria-hidden="true"></span></summary>
-            <p class="answer">The first 20 qualifying dental, med spa, and HVAC owners get a free evidence-pack review (if you have an open fake-review case) and a 15-minute GBP risk teardown. Validation pricing is locked for 6 months if you convert.</p>
-          </details>
-          <details>
-            <summary>Does joining the waitlist cost anything?<span class="plus-ic" aria-hidden="true"></span></summary>
-            <p class="answer">No. Joining is free and doesn’t commit you to a plan. We’ll only email you about GBP Shield early access and your evidence pack.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- Waitlist -->
+    <!-- 5. The ask -->
     <section class="section band" id="waitlist" aria-labelledby="waitlist-title">
       <div class="container join-grid">
         <div>
-          <p class="kicker">Waitlist</p>
-          <h2 id="waitlist-title">Protect the Map Pack you already earned.</h2>
-          <p class="sub">We’re onboarding a small validation cohort of dental, med spa, and HVAC owners. Joining is free — no card, no commitment.</p>
+          <p class="kicker">Early list</p>
+          <h2 id="waitlist-title">If this is on your plate, get on the list.</h2>
+          <p class="sub">Fake 1★s eating your week? We’re opening to a small group of first owners in dental, med spa, and HVAC. Joining is free: no card, no commitment.</p>
           <ul class="perks">
             <li>
               <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-file" /></svg>
@@ -898,7 +726,7 @@
             </li>
             <li>
               <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-lock" /></svg>
-              <span class="copy"><strong>Validation pricing, locked</strong><span>Starter at $79/mo, locked for 6 months if you convert.</span></span>
+              <span class="copy"><strong>Early pricing, locked</strong><span>Starter at $79/mo, locked for 6 months if you convert.</span></span>
             </li>
           </ul>
           <p class="offer-note">Offer applies to the first 20 qualifying dental, med spa, and HVAC owners.</p>
@@ -1006,6 +834,112 @@
         </div>
       </div>
     </section>
+
+    <!-- 6. Pricing, kept quiet -->
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="measure">
+          <p class="kicker">Pricing</p>
+          <h2 id="pricing-title">What it’ll cost when we open.</h2>
+          <p class="sub">Early-list pricing, locked for 6 months if you convert. Joining the list is free and doesn’t commit you to a plan.</p>
+
+          <article class="plan plan-main" aria-labelledby="plan-starter">
+            <div class="plan-top">
+              <div>
+                <h3 id="plan-starter">Shield Starter</h3>
+                <p class="plan-desc">One location: paced, policy-safe review asks and a playbook ready for a bad week.</p>
+              </div>
+              <p class="price">$79<small>/mo</small></p>
+            </div>
+            <ul>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>1 location</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Paced post-visit review asks</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Evidence-pack templates</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Restriction &amp; attack playbook</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Email support</li>
+            </ul>
+            <a class="btn btn-primary" href="#waitlist" data-plan="starter">Join the waitlist<span class="sr-only"> for Shield Starter</span></a>
+          </article>
+
+          <details class="more plans-more">
+            <summary><span>Two locations, or under active attack? <span class="opt">Pro $149 · Concierge $299</span></span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron" /></svg></summary>
+            <div class="plans-more-body">
+              <article class="plan" aria-labelledby="plan-pro">
+                <div class="plan-top">
+                  <h3 id="plan-pro">Shield Pro</h3>
+                  <p class="price">$149<small>/mo</small></p>
+                </div>
+                <p class="plan-desc">Practices with a PMS, POS, or CRM to connect for stronger evidence.</p>
+                <ul>
+                  <li class="plus">Everything in Starter, plus:</li>
+                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>POS / CRM connect</li>
+                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Up to 2 locations</li>
+                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Priority evidence-pack assist (2/mo)</li>
+                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Slack + email support</li>
+                </ul>
+                <a class="btn btn-ghost" href="#waitlist" data-plan="pro">Join the waitlist<span class="sr-only"> for Shield Pro</span></a>
+              </article>
+
+              <article class="plan" aria-labelledby="plan-concierge">
+                <div class="plan-top">
+                  <h3 id="plan-concierge">Shield Concierge</h3>
+                  <p class="price">$299<small>/mo</small></p>
+                </div>
+                <p class="plan-desc">Multi-location groups, or owners under active attack.</p>
+                <ul>
+                  <li class="plus">Everything in Pro, plus:</li>
+                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Multi-location (fair use)</li>
+                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Hands-on evidence packs</li>
+                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Attack &amp; restriction war-room</li>
+                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Quarterly GBP health review</li>
+                </ul>
+                <a class="btn btn-ghost" href="#waitlist" data-plan="concierge">Join the waitlist<span class="sr-only"> for Shield Concierge</span></a>
+              </article>
+            </div>
+          </details>
+
+          <p class="addon"><strong>Add-on: Evidence Pack Concierge — $199</strong> per open fake-review case. The first 20 qualifying owners get their evidence-pack review free.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <div class="faq-side">
+          <p class="kicker">FAQ</p>
+          <h2 id="faq-title">Straight answers.</h2>
+          <p class="sub">Including when GBP Shield isn’t the right fit for you.</p>
+          <a class="btn btn-ghost" href="#waitlist">Join the waitlist</a>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Do you guarantee Google will remove a fake review?<span class="plus-ic" aria-hidden="true"></span></summary>
+            <p class="answer">No. Nobody can — Google alone decides. We maximize the quality of your report and appeal with policy citations and visit/POS no-match evidence.</p>
+          </details>
+          <details>
+            <summary>How is GBP Shield different from GatherUp Review Defense?<span class="plus-ic" aria-hidden="true"></span></summary>
+            <p class="answer">GatherUp is a broader review platform, and Review Defense runs roughly $50–$375/mo. If it already covers you, stay there. GBP Shield is narrower: evidence packs built from your own visit and POS records, for high-ticket dental, med spa, and HVAC businesses.</p>
+          </details>
+          <details>
+            <summary>Is this compliant with Google’s review policies?<span class="plus-ic" aria-hidden="true"></span></summary>
+            <p class="answer">Yes, by design. We don’t incentivize, gate, or buy reviews, and we don’t auto-post AI replies. Asks only go out after real visits, they’re optional for the customer, and they’re paced so they never spike.</p>
+          </details>
+          <details>
+            <summary>What if someone is extorting me with fake 1-star reviews?<span class="plus-ic" aria-hidden="true"></span></summary>
+            <p class="answer">Don’t pay. Document every message, report it through Google’s merchant extortion channels, and back the report with an evidence pack and a clear report trail. Concierge includes an attack war-room playbook.</p>
+          </details>
+          <details>
+            <summary>What do the first 20 waitlist members get?<span class="plus-ic" aria-hidden="true"></span></summary>
+            <p class="answer">The first 20 qualifying dental, med spa, and HVAC owners get a free evidence-pack review (if you have an open fake-review case) and a 15-minute GBP risk teardown. Early pricing is locked for 6 months if you convert.</p>
+          </details>
+          <details>
+            <summary>Does joining the waitlist cost anything?<span class="plus-ic" aria-hidden="true"></span></summary>
+            <p class="answer">No. Joining is free and doesn’t commit you to a plan. We’ll only email you about GBP Shield early access and your evidence pack.</p>
+          </details>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -1016,10 +950,10 @@
             <svg class="brand-mark" aria-hidden="true" focusable="false"><use href="#mark" /></svg>
             <span>GBP Shield</span>
           </a>
-          <p class="footer-tag">Evidence packs, compliant review asks, and attack recovery for dental, med spa, and HVAC.</p>
+          <p class="footer-tag">Evidence packs for fake-review appeals, plus paced, policy-safe review asks. For dental, med spa, and HVAC.</p>
         </div>
         <nav class="footer-links" aria-label="Footer">
-          <a href="#how">How it works</a>
+          <a href="#pack">Evidence pack</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
           <a href="#waitlist">Join the waitlist</a>
@@ -1030,7 +964,7 @@
   </footer>
 
   <script>
-    // ---- Hero visual motion: add .is-in once, the first time it's 20% in view. CSS runs the one-shot timeline. ----
+    // ---- Pack motion: add .is-in once, the first time it's ~35% in view. CSS runs the one-shot timeline. ----
     (function () {
       'use strict';
 
@@ -1045,10 +979,10 @@
       }
 
       var io = new IntersectionObserver(function (entries) {
-        if (entries[entries.length - 1].intersectionRatio < 0.2) return;
+        if (entries[entries.length - 1].intersectionRatio < 0.35) return;
         visual.classList.add('is-in');
         io.disconnect();
-      }, { threshold: 0.2 });
+      }, { threshold: 0.35 });
       io.observe(visual);
     })();
   </script>
