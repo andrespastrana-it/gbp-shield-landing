@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GBP Shield — Protect your Map Pack from fake Google reviews</title>
-  <meta name="description" content="Evidence packs for fake-review appeals, compliant post-visit review asks, and attack &amp; restriction recovery for dental, med spa, and HVAC owners. No guaranteed removals. No NFC. No AI reply bots." />
+  <title>GBP Shield — Evidence packs for fake Google review appeals</title>
+  <meta name="description" content="Visit-linked evidence packs for fake-review appeals, compliant post-visit review asks, and recovery help for dental, med spa &amp; HVAC owners. No removal guarantees." />
   <link rel="canonical" href="http://147.93.2.73:3080/" />
   <meta name="theme-color" content="#0a1014" />
   <meta name="color-scheme" content="dark" />
@@ -15,8 +15,8 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="GBP Shield" />
-  <meta property="og:title" content="GBP Shield — Protect your Map Pack from fake Google reviews" />
-  <meta property="og:description" content="Evidence packs, compliant review asks, and attack recovery for dental, med spa, and HVAC owners. Join the waitlist." />
+  <meta property="og:title" content="GBP Shield — Evidence packs for fake Google review appeals" />
+  <meta property="og:description" content="Visit-linked evidence packs, compliant review asks, and recovery help for dental, med spa, and HVAC owners. Join the waitlist." />
   <meta property="og:url" content="http://147.93.2.73:3080/" />
   <meta property="og:image" content="http://147.93.2.73:3080/assets/og.png" />
   <meta property="og:image:type" content="image/png" />
@@ -24,8 +24,8 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="GBP Shield — Protect your Map Pack from fake Google reviews. Dental, med spa, HVAC." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="GBP Shield — Protect your Map Pack from fake Google reviews" />
-  <meta name="twitter:description" content="Evidence packs, compliant review asks, and attack recovery for dental, med spa, and HVAC owners. Join the waitlist." />
+  <meta name="twitter:title" content="GBP Shield — Evidence packs for fake Google review appeals" />
+  <meta name="twitter:description" content="Visit-linked evidence packs, compliant review asks, and recovery help for dental, med spa, and HVAC owners. Join the waitlist." />
   <meta name="twitter:url" content="http://147.93.2.73:3080/" />
   <meta name="twitter:image" content="http://147.93.2.73:3080/assets/og.png" />
   <meta name="twitter:image:alt" content="GBP Shield — Protect your Map Pack from fake Google reviews. Dental, med spa, HVAC." />
@@ -42,7 +42,7 @@
       {
         "@type": "Question",
         "name": "Do you guarantee Google will remove a fake review?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. Nobody can — Google alone decides. We maximize the quality of your report and appeal with policy citations and visit/POS no-match evidence." }
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Nobody can — Google alone decides. We make your report and appeal as strong as they can be, with policy citations and visit/POS no-match evidence." }
       },
       {
         "@type": "Question",
@@ -51,29 +51,14 @@
       },
       {
         "@type": "Question",
-        "name": "Is this compliant with Google’s review policies?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, by design. We don’t incentivize, gate, or buy reviews, and we don’t auto-post AI replies. Asks only go out after real visits, they’re optional for the customer, and they’re paced so they never spike." }
-      },
-      {
-        "@type": "Question",
-        "name": "What if someone is extorting me with fake 1-star reviews?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Don’t pay. Document every message, report it through Google’s merchant extortion channels, and back the report with an evidence pack and a clear report trail. Concierge includes an attack war-room playbook." }
-      },
-      {
-        "@type": "Question",
-        "name": "What do the first 20 waitlist members get?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The first 20 qualifying dental, med spa, and HVAC owners get a free evidence-pack review (if you have an open fake-review case) and a 15-minute GBP risk teardown. Early pricing is locked for 6 months if you convert." }
-      },
-      {
-        "@type": "Question",
-        "name": "Does joining the waitlist cost anything?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. Joining is free and doesn’t commit you to a plan. We’ll only email you about GBP Shield early access and your evidence pack." }
+        "name": "What happens after I join the waitlist?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Joining is free and doesn’t commit you to a plan. If you’re one of the first 20 qualifying owners, we’ll email you to book a 15-minute GBP risk teardown, and if you have an open fake-review case, we’ll go through your evidence with you at no cost. Everyone on the list gets early pricing, locked for 6 months if you convert." }
       }
     ]
   }
   </script>
 
-  <!-- Set before first paint so the hero visual's hidden pre-entrance state only applies when JS can reveal it. -->
+  <!-- Set before first paint so the pack's hidden pre-entrance state only applies when JS can reveal it. -->
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
@@ -192,25 +177,21 @@
     @media (min-width: 800px) { .mobile-menu { display: none !important; } }
     @media (max-width: 379px) { .hide-xs { display: none; } }
 
-    /* The story sections (hero through never-do) share one reading column. */
-    .measure { max-width: 42rem; margin-inline: auto; }
-
-    /* Hero: the problem moment, no product visual */
-    .hero { position: relative; padding: 96px 0 40px; }
+    /* Hero: who it's for, the problem, the offer, and the CTA on the left; the sample pack on the right. */
+    .hero { position: relative; padding: 64px 0 80px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr); gap: 56px; align-items: center; }
     .eyebrow { color: var(--muted); font-size: .95rem; font-weight: 500; }
     .hero h1 {
-      margin-top: 16px; font-weight: 600;
-      font-size: clamp(2.3rem, 5vw, 3.25rem); line-height: 1.08; letter-spacing: -.03em;
+      margin-top: 14px; font-weight: 600;
+      font-size: clamp(2.1rem, 4.4vw, 3.1rem); line-height: 1.08; letter-spacing: -.03em; text-wrap: balance;
     }
-    .hero h1 span { display: block; text-wrap: balance; }
-    .hero-also { margin-top: 14px; color: var(--subtle); font-size: clamp(1.02rem, 1.4vw, 1.14rem); }
-    .lead { margin-top: 28px; color: var(--muted); font-size: clamp(1.06rem, 1.5vw, 1.18rem); line-height: 1.65; text-wrap: pretty; }
-    .lead + .lead { margin-top: 14px; color: var(--text); }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-    .trust-line { margin-top: 18px; color: var(--subtle); font-size: .9rem; }
+    .lead { max-width: 34em; margin-top: 20px; color: var(--muted); font-size: clamp(1.06rem, 1.5vw, 1.16rem); line-height: 1.6; text-wrap: pretty; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .cta-note { max-width: 36em; margin-top: 16px; color: var(--muted); font-size: .94rem; }
+    .trust-line { margin-top: 6px; color: var(--subtle); font-size: .9rem; }
 
-    /* Evidence pack (illustrative), the centerpiece of #pack */
-    .visual { position: relative; isolation: isolate; width: 100%; margin: 40px 0 0; }
+    /* Evidence pack (illustrative) */
+    .visual { position: relative; isolation: isolate; width: 100%; max-width: 540px; margin: 0 auto; }
     .visual figcaption { margin-top: 12px; text-align: center; color: var(--subtle); font-size: .78rem; }
     .pack { position: relative; padding: 18px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--surface); }
     .pack-head {
@@ -273,7 +254,8 @@
     .mini-btn { padding: 6px 10px; border-radius: 6px; border: 1px solid var(--line-2); color: var(--text); font-size: .78rem; font-weight: 600; white-space: nowrap; }
 
     @media (max-width: 959px) {
-      .hero { padding: 56px 0 32px; }
+      .hero { padding: 44px 0 64px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
     }
     @media (max-width: 640px) {
       .container { padding-inline: 18px; }
@@ -325,70 +307,50 @@
     .visual.is-in .checks .result { animation: ep-stamp .32s var(--ease-out) calc(var(--row-at) + 600ms) backwards; }
 
     /* Sections */
-    .section { padding: 104px 0; }
-    .section-short { padding: 80px 0; }
+    .section { padding: 88px 0; }
+    .section-short { padding: 72px 0; }
     .band { border-block: 1px solid var(--line); background: rgba(255, 255, 255, .015); }
-    .kicker { margin-bottom: 12px; color: var(--subtle); font-size: .92rem; font-weight: 500; }
     h2 { font-weight: 600; font-size: clamp(1.75rem, 3.2vw, 2.4rem); line-height: 1.15; letter-spacing: -.025em; text-wrap: balance; }
-    .sub { margin-top: 16px; color: var(--muted); font-size: 1.06rem; text-wrap: pretty; }
+    .sub { max-width: 40em; margin-top: 14px; color: var(--muted); font-size: 1.06rem; text-wrap: pretty; }
     h3 { font-size: 1.08rem; font-weight: 600; line-height: 1.35; letter-spacing: -.01em; }
     @media (max-width: 700px) {
-      .section { padding: 72px 0; }
+      .section { padding: 64px 0; }
       .section-short { padding: 56px 0; }
     }
 
-    /* Story: prose, not cards */
-    .path { padding: 40px 0 96px; }
-    .prose { margin-top: 24px; }
-    .prose p { color: var(--muted); font-size: 1.08rem; line-height: 1.7; text-wrap: pretty; }
-    .prose p + p { margin-top: 1.1em; }
-    @media (max-width: 700px) { .path { padding: 32px 0 72px; } }
+    /* What you get: three outcomes */
+    .gets { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin: 32px 0 0; padding: 0; }
+    .gets li { padding-top: 20px; border-top: 1px solid var(--line-2); }
+    .gets p { margin-top: 8px; color: var(--muted); font-size: .98rem; line-height: 1.55; text-wrap: pretty; }
+    @media (max-width: 799px) { .gets { grid-template-columns: 1fr; gap: 24px; } }
 
-    /* Under the pack: how one gets built, as labeled lines */
-    .build { list-style: none; margin: 40px 0 0; padding: 0; border-top: 1px solid var(--line); }
-    .build li { display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid var(--line); }
-    .build strong { font-weight: 600; }
-    .build span { color: var(--muted); }
-    .quiet { margin-top: 28px; color: var(--subtle); font-size: .96rem; text-wrap: pretty; }
-    @media (max-width: 600px) { .build li { grid-template-columns: 1fr; } }
+    /* Who it's for / who it isn't */
+    .fit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+    .fit { padding: 24px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); }
+    .fit ul { list-style: none; display: grid; gap: 12px; margin: 16px 0 0; padding: 0; }
+    .fit li { display: flex; gap: 10px; color: var(--muted); line-height: 1.45; }
+    .fit li .icon { width: 17px; height: 17px; margin-top: 3px; stroke-width: 2.2; }
+    .fit-yes li .icon { color: var(--subtle); }
+    .fit-no li .icon { color: var(--danger); }
+    @media (max-width: 799px) { .fit-grid { grid-template-columns: 1fr; } }
 
-    /* Never-do */
-    .never { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 28px 0 0; padding: 0; }
-    .never li {
-      display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 10px;
-      border: 1px solid var(--line); font-size: .96rem; font-weight: 500;
-    }
-    .never .x { flex: none; display: grid; color: var(--danger); }
-    .never .x .icon { width: 16px; height: 16px; stroke-width: 2.2; }
-    @media (max-width: 520px) { .never { grid-template-columns: 1fr; } }
-
-    /* Pricing: quiet. Starter up front; Pro and Concierge behind a disclosure. */
+    /* Pricing: all three prices visible */
+    .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
     .plan {
-      display: flex; flex-direction: column; padding: 28px;
+      display: flex; flex-direction: column; padding: 24px;
       border-radius: 12px; border: 1px solid var(--line); background: var(--surface);
     }
-    .plan-main { margin-top: 36px; }
-    .plan-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; }
-    .plan-top > div { flex: 1 1 18rem; min-width: 0; }
-    .plan-desc { margin-top: 6px; color: var(--muted); font-size: .93rem; }
+    .plan-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+    .plan-desc { margin-top: 8px; color: var(--muted); font-size: .93rem; }
     .price { font-size: 2rem; font-weight: 600; line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; white-space: nowrap; }
     .price small { margin-left: 2px; color: var(--subtle); font-size: .9rem; font-weight: 500; letter-spacing: 0; }
     .plan ul { list-style: none; flex: 1; display: grid; align-content: start; gap: 10px; margin: 20px 0 24px; padding: 20px 0 0; border-top: 1px solid var(--line); }
     .plan li { display: flex; gap: 10px; color: var(--muted); font-size: .94rem; line-height: 1.45; }
     .plan li .icon { width: 17px; height: 17px; margin-top: 2px; color: var(--subtle); stroke-width: 2.2; }
     .plan li.plus { color: var(--text); font-weight: 600; }
-    .plan .btn { align-self: flex-start; }
-    .more.plans-more { margin: 14px 0 0; }
-    .plans-more-body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; padding: 16px; }
-    .plans-more .plan { padding: 22px; }
-    .plans-more .plan .btn { align-self: stretch; }
     .addon { margin-top: 24px; color: var(--muted); font-size: .95rem; }
     .addon strong { color: var(--text); font-weight: 600; }
-    @media (min-width: 640px) { .plan-main ul { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; } }
-    @media (max-width: 639px) {
-      .plans-more-body { grid-template-columns: 1fr; padding: 14px; }
-      .plan .btn { align-self: stretch; }
-    }
+    @media (max-width: 899px) { .plans { grid-template-columns: 1fr; max-width: 560px; } }
 
     /* FAQ */
     .faq-grid { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: 56px; align-items: start; }
@@ -430,14 +392,6 @@
     .form-head { margin-bottom: 24px; }
     .form-head h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.2; letter-spacing: -.02em; }
     .form-head p { margin-top: 6px; color: var(--muted); font-size: .94rem; }
-    .form-head .plan-note {
-      display: inline-flex; align-items: center; gap: 4px; margin-top: 14px; padding: 5px 6px 5px 12px; border-radius: 8px;
-      border: 1px solid var(--line-2); background: rgba(255, 255, 255, .03); color: var(--text); font-size: .86rem;
-    }
-    .link-btn {
-      padding: 2px 6px; border: 0; background: none; cursor: pointer;
-      color: var(--text); font: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px;
-    }
     .row-2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; }
     .field { min-width: 0; margin: 0 0 18px; padding: 0; border: 0; }
     .field > label, .field > legend {
@@ -447,6 +401,8 @@
     /* Floated so the legend takes normal margins instead of sitting on the fieldset border. */
     .field > legend { float: left; width: 100%; }
     .field > legend + * { clear: both; }
+    .field-hint { margin-top: 8px; color: var(--subtle); font-size: .84rem; }
+    .field-hint a { color: var(--muted); text-underline-offset: 3px; }
     .req { color: var(--subtle); }
     .opt { color: var(--subtle); font-weight: 500; }
     .input {
@@ -457,24 +413,21 @@
     .input::placeholder { color: #75888e; }
     .input:hover { border-color: #41596a; }
     .input:focus { outline: none; border-color: var(--muted); box-shadow: 0 0 0 3px rgba(180, 193, 195, .18); }
-    select.input {
-      -webkit-appearance: none; appearance: none; padding-right: 40px; cursor: pointer;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%23b4c1c3' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 14px center;
-    }
-    select.input option { background: var(--surface); color: var(--text); }
     .chips { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
     .chips-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .chip { position: relative; display: block; }
     .chip input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
     .chip span {
-      display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 10px; border-radius: 8px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+      min-height: 48px; padding: 10px; border-radius: 8px;
       border: 1px solid var(--line-2); background: #0b1317; color: var(--muted);
       font-size: .94rem; font-weight: 500; text-align: center; line-height: 1.25;
       transition: border-color .15s, background-color .15s, color .15s;
     }
+    .chip span small { color: var(--subtle); font-size: .8rem; }
     .chip:hover span { border-color: #46606d; color: var(--text); }
     .chip input:checked + span { border-color: var(--text); background: rgba(255, 255, 255, .06); color: var(--text); box-shadow: inset 0 0 0 1px var(--text); }
+    .chip input:checked + span small { color: var(--muted); }
     .chip input:focus-visible + span { outline: 2px solid var(--text); outline-offset: 2px; }
     .was-validated .input:invalid { border-color: var(--danger); }
     .was-validated .chips:has(input:invalid) .chip span { border-color: rgba(255, 138, 128, .7); }
@@ -563,7 +516,7 @@
         <span>GBP Shield</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#pack">Evidence pack</a>
+        <a href="#what">What you get</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -574,151 +527,146 @@
       </button>
     </div>
     <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" hidden>
-      <a href="#pack">Evidence pack</a>
+      <a href="#what">What you get</a>
+      <a href="#fit">Who it’s for</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
   </header>
 
   <main id="main">
-    <!-- 1. The problem moment -->
+    <!-- 1. Who, problem, offer, CTA. The sample pack sits beside it as proof of the artifact. -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
-        <div class="measure">
-          <p class="eyebrow">For local dental, med spa &amp; HVAC owners</p>
-          <h1 id="hero-title"><span>Three new 1★ reviews.</span> <span>None of them sat in your chair.</span></h1>
-          <p class="hero-also">Or booked a facial. Or let your tech in the door.</p>
-          <p class="lead">Monday, 7:40 a.m., and your 4.8 is a 4.6. They all landed over the weekend, hours apart, from accounts with one review each. You check the schedule and the POS: no names, no visits, no payments.</p>
-          <p class="lead">GBP Shield turns that gap into a visit-linked evidence pack for your appeal, and keeps your real review asks inside Google’s rules while you rebuild.</p>
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">For dental, med spa &amp; HVAC owners · best fit at 3–10 locations</p>
+          <h1 id="hero-title">Fake 1-star reviews can knock you out of Google’s Map Pack.</h1>
+          <p class="lead">GBP Shield builds a visit-linked evidence pack for each appeal, sends compliant review asks after real visits, and guides your recovery.</p>
           <div class="cta-row">
             <a class="btn btn-primary btn-lg" href="#waitlist">Join the waitlist<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></a>
-            <a class="btn btn-ghost btn-lg" href="#pack">See an evidence pack</a>
+            <a class="btn btn-ghost btn-lg" href="#pricing">Plans from $79/mo</a>
           </div>
-          <p class="trust-line">No removal guarantees. No NFC gimmicks. No AI reply bots.</p>
+          <p class="cta-note">Free to join. The first 20 qualifying owners get a free evidence-pack review and a 15-minute GBP teardown.</p>
+          <p class="trust-line">No removal guarantees. No NFC. No AI reply bots.</p>
         </div>
-      </div>
-    </section>
 
-    <!-- 2. What usually happens next -->
-    <section class="path" aria-labelledby="path-title">
-      <div class="container">
-        <div class="measure">
-          <p class="kicker">The usual path</p>
-          <h2 id="path-title">You report it. You wait. Someone promises Google will listen to them instead.</h2>
-          <div class="prose">
-            <p>You flag the reviews in Maps and write a calm public reply, so whoever reads it next sees you’re reasonable. A week later all three are still up, and a reputation vendor is in your inbox offering to “get them down.”</p>
-            <p>Here’s what that pitch skips. Google doesn’t take a review down because it’s unfair; it acts on evidence that the review breaks policy. No matching visit. No payment on record. The same account leaving 1★s across town in the same 48 hours. A clean trail of what you reported, and when. Nobody controls Google’s decision, so anyone guaranteeing a removal is guessing.</p>
-            <p>And it lands on high-ticket locals on purpose. When a dental practice, med spa, or HVAC shop slips out of the Map Pack, the calls go to whoever’s next on the map. Extortion rings and competitor attacks know exactly what a few spots are worth.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. The artifact -->
-    <section class="section band" id="pack" aria-labelledby="artifact-title">
-      <div class="container">
-        <div class="measure">
-          <p class="kicker">The artifact</p>
-          <h2 id="artifact-title">An evidence pack is the paper trail for one shady review.</h2>
-          <div class="prose">
-            <p>Not a vanity dashboard. One appeal folder per review: the review itself, the appointment no-match, the POS gap, notes on the cluster, dated screenshots, and the policy it breaks, ready to file. Here’s a sample.</p>
-          </div>
-
-          <figure class="visual">
-            <div class="pack" role="img" aria-label="Illustrative GBP Shield evidence pack: a flagged one-star review with no matching appointment, no POS record, a reviewer cluster pattern, and a citation of Google's fake engagement policy, ready to file as an appeal.">
-              <div class="pack-head">
-                <div class="pack-title">
-                  <span class="mark-tile"><svg><use href="#mark" /></svg></span>
-                  <span><span class="pack-kicker">Evidence pack</span><strong>EP-0142 · Fake review appeal</strong></span>
-                </div>
-                <span class="tag tag-gold">Ready to file</span>
+        <figure class="visual">
+          <div class="pack" role="img" aria-label="Illustrative GBP Shield evidence pack: a flagged one-star review with no matching appointment, no POS record, a reviewer cluster pattern, and a citation of Google's fake engagement policy, ready to file as an appeal.">
+            <div class="pack-head">
+              <div class="pack-title">
+                <span class="mark-tile"><svg><use href="#mark" /></svg></span>
+                <span><span class="pack-kicker">Evidence pack</span><strong>EP-0142 · Fake review appeal</strong></span>
               </div>
-
-              <div class="review">
-                <span class="avatar">JM</span>
-                <div class="review-body">
-                  <div class="review-top">
-                    <span><strong>J. M.</strong><small>1 review · no photos</small></span>
-                    <span class="tag tag-danger">Flagged</span>
-                  </div>
-                  <div class="stars">
-                    <svg class="on"><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg>
-                    <span class="when">2 days ago</span>
-                  </div>
-                  <p>“Terrible visit. Rude staff, charged me twice. Never coming back.”</p>
-                </div>
-              </div>
-
-              <ul class="checks">
-                <li>
-                  <span class="ic ic-x"><svg class="icon"><use href="#i-x" /></svg></span>
-                  <span><strong>Appointment match</strong><small>No visit in PMS, last 18 months</small></span>
-                  <span class="result r-bad">No match</span>
-                </li>
-                <li>
-                  <span class="ic ic-x"><svg class="icon"><use href="#i-x" /></svg></span>
-                  <span><strong>POS / payment record</strong><small>No ticket under name or card</small></span>
-                  <span class="result r-bad">None found</span>
-                </li>
-                <li>
-                  <span class="ic ic-warn"><svg class="icon"><use href="#i-warn" /></svg></span>
-                  <span><strong>Reviewer pattern</strong><small>1★ at 4 nearby practices, same 48h</small></span>
-                  <span class="result r-warn">Cluster</span>
-                </li>
-              </ul>
-
-              <div class="cite">
-                <span class="cite-label">Policy cite</span>
-                <p><strong>Fake engagement</strong> — Google Maps content must reflect a genuine experience at the location.</p>
-              </div>
-
-              <div class="pack-foot">
-                <span>Appeal draft + 4 exhibits</span>
-                <span class="mini-btn">Export PDF</span>
-              </div>
-              <span class="pack-scan" aria-hidden="true"></span>
+              <span class="tag tag-gold">Ready to file</span>
             </div>
-            <figcaption>Illustrative sample — not a real case or outcome.</figcaption>
-          </figure>
 
-          <ul class="build">
-            <li><strong>Match visits</strong><span>We check each reviewer against your schedule and POS. No visit and no payment is the first exhibit.</span></li>
-            <li><strong>Capture the pattern</strong><span>Reviewer history, timing across nearby businesses, and dated screenshots, saved before anything gets edited or deleted.</span></li>
-            <li><strong>Draft the appeal</strong><span>A plain-language appeal that cites the Google policy the review breaks, with every exhibit attached.</span></li>
-          </ul>
+            <div class="review">
+              <span class="avatar">JM</span>
+              <div class="review-body">
+                <div class="review-top">
+                  <span><strong>J. M.</strong><small>1 review · no photos</small></span>
+                  <span class="tag tag-danger">Flagged</span>
+                </div>
+                <div class="stars">
+                  <svg class="on"><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg>
+                  <span class="when">2 days ago</span>
+                </div>
+                <p>“Terrible visit. Rude staff, charged me twice. Never coming back.”</p>
+              </div>
+            </div>
 
-          <p class="quiet">Behind it: you connect your PMS, POS, or CRM, or upload an appointment export, and we only ever work from real visits. That same list drives paced, policy-safe review asks after appointments, so your rating rebuilds from people who actually came in. If it turns into a flood, an extortion attempt, or a profile restriction, there’s a playbook for that too: document, report, appeal, rebuild.</p>
-        </div>
+            <ul class="checks">
+              <li>
+                <span class="ic ic-x"><svg class="icon"><use href="#i-x" /></svg></span>
+                <span><strong>Appointment match</strong><small>No visit in PMS, last 18 months</small></span>
+                <span class="result r-bad">No match</span>
+              </li>
+              <li>
+                <span class="ic ic-x"><svg class="icon"><use href="#i-x" /></svg></span>
+                <span><strong>POS / payment record</strong><small>No ticket under name or card</small></span>
+                <span class="result r-bad">None found</span>
+              </li>
+              <li>
+                <span class="ic ic-warn"><svg class="icon"><use href="#i-warn" /></svg></span>
+                <span><strong>Reviewer pattern</strong><small>1★ at 4 nearby practices, same 48h</small></span>
+                <span class="result r-warn">Cluster</span>
+              </li>
+            </ul>
+
+            <div class="cite">
+              <span class="cite-label">Policy cite</span>
+              <p><strong>Fake engagement</strong> — Google Maps content must reflect a genuine experience at the location.</p>
+            </div>
+
+            <div class="pack-foot">
+              <span>Appeal draft + 4 exhibits</span>
+              <span class="mini-btn">Export PDF</span>
+            </div>
+            <span class="pack-scan" aria-hidden="true"></span>
+          </div>
+          <figcaption>Illustrative sample — not a real case or outcome.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- 4. Hard lines -->
-    <section class="section-short" aria-labelledby="never-title">
+    <!-- 2. What you get -->
+    <section class="section-short band" id="what" aria-labelledby="what-title">
       <div class="container">
-        <div class="measure">
-          <h2 id="never-title">What we will never sell you.</h2>
-          <p class="sub">We’d rather lose the sale.</p>
-          <ul class="never">
-            <li><span class="x"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x" /></svg></span>Guarantee a review gets removed</li>
-            <li><span class="x"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x" /></svg></span>Buy, gate, or incentivize reviews</li>
-            <li><span class="x"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x" /></svg></span>Sell NFC cards, kiosks, or QR gimmicks</li>
-            <li><span class="x"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x" /></svg></span>Auto-post AI replies for you</li>
-          </ul>
+        <h2 id="what-title">What you get</h2>
+        <ul class="gets">
+          <li>
+            <h3>An evidence pack for each fake review</h3>
+            <p>We match the reviewer against your schedule and POS, save their review pattern with dated screenshots, and draft an appeal that cites the Google policy it breaks. Ready to file.</p>
+          </li>
+          <li>
+            <h3>Review asks that follow Google’s rules</h3>
+            <p>Asks go out only after real visits, paced so they never spike. No gating, no incentives. Your rating rebuilds from people who actually came in.</p>
+          </li>
+          <li>
+            <h3>A recovery plan for bad weeks</h3>
+            <p>Review floods, extortion attempts, profile restrictions: a step-by-step playbook to document, report, appeal, and rebuild.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Who it's for, and the never-do lines -->
+    <section class="section-short" id="fit" aria-labelledby="fit-title">
+      <div class="container">
+        <h2 id="fit-title">Who it’s for</h2>
+        <div class="fit-grid">
+          <div class="fit fit-yes">
+            <h3>A good fit if you</h3>
+            <ul>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Run a dental practice, med spa, or HVAC / home-service company</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Have 3–10 locations (one or two works too)</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Have a fake or suspicious 1-star open now, or have been hit before</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Keep visits in a PMS, POS, or CRM, or can export them</li>
+            </ul>
+          </div>
+          <div class="fit fit-no">
+            <h3>Not for you if you want us to</h3>
+            <ul>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x" /></svg>Guarantee a review gets removed</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x" /></svg>Buy, gate, or incentivize reviews</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x" /></svg>Sell NFC cards, kiosks, or QR gimmicks</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x" /></svg>Auto-post AI replies to your reviews</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. The ask -->
+    <!-- 4. The ask -->
     <section class="section band" id="waitlist" aria-labelledby="waitlist-title">
       <div class="container join-grid">
         <div>
-          <p class="kicker">Early list</p>
-          <h2 id="waitlist-title">If this is on your plate, get on the list.</h2>
-          <p class="sub">Fake 1★s eating your week? We’re opening to a small group of first owners in dental, med spa, and HVAC. Joining is free: no card, no commitment.</p>
+          <h2 id="waitlist-title">Join the waitlist</h2>
+          <p class="sub">Free, no card, no commitment. Tell us about your business and which plan you’d pick. It decides what we build first.</p>
           <ul class="perks">
             <li>
               <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-file" /></svg>
-              <span class="copy"><strong>Free evidence-pack review</strong><span>Have an open fake-review case? We’ll review the evidence with you at no cost.</span></span>
+              <span class="copy"><strong>Free evidence-pack review</strong><span>Have an open fake-review case? We’ll go through the evidence with you at no cost.</span></span>
             </li>
             <li>
               <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock" /></svg>
@@ -726,10 +674,10 @@
             </li>
             <li>
               <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-lock" /></svg>
-              <span class="copy"><strong>Early pricing, locked</strong><span>Starter at $79/mo, locked for 6 months if you convert.</span></span>
+              <span class="copy"><strong>Early pricing, locked</strong><span>Whichever plan you pick, the early price holds for 6 months if you convert.</span></span>
             </li>
           </ul>
-          <p class="offer-note">Offer applies to the first 20 qualifying dental, med spa, and HVAC owners.</p>
+          <p class="offer-note">The review and teardown are for the first 20 qualifying dental, med spa, and HVAC owners.</p>
         </div>
 
         <div>
@@ -737,8 +685,7 @@
           <form class="form-card" id="waitlist-form" action="https://formsubmit.co/andreserluis@gmail.com" method="POST">
             <div class="form-head">
               <h3>Get early access</h3>
-              <p>Four quick questions — about 30 seconds.</p>
-              <p class="plan-note" id="plan-note" hidden>Plan interest: <strong id="plan-name"></strong><button type="button" class="link-btn" id="plan-change">Change</button></p>
+              <p>Takes about 30 seconds.</p>
             </div>
 
             <div class="row-2">
@@ -763,6 +710,16 @@
             </fieldset>
 
             <fieldset class="field">
+              <legend>How many locations? <span class="req" aria-hidden="true">*</span></legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="locations" value="1" required /><span>1</span></label>
+                <label class="chip"><input type="radio" name="locations" value="2" /><span>2</span></label>
+                <label class="chip"><input type="radio" name="locations" value="3–10" /><span>3–10</span></label>
+                <label class="chip"><input type="radio" name="locations" value="11+" /><span>11+</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field">
               <legend>Open fake or suspicious review right now? <span class="req" aria-hidden="true">*</span></legend>
               <div class="chips chips-2">
                 <label class="chip"><input type="radio" name="open_case" value="Yes" required /><span>Yes, right now</span></label>
@@ -770,7 +727,18 @@
               </div>
             </fieldset>
 
-            <details class="more" id="more">
+            <fieldset class="field">
+              <legend>Which plan would you most likely pick? <span class="req" aria-hidden="true">*</span></legend>
+              <div class="chips chips-2">
+                <label class="chip"><input type="radio" name="plan" value="starter" required /><span>Starter <small>$79/mo</small></span></label>
+                <label class="chip"><input type="radio" name="plan" value="pro" /><span>Pro <small>$149/mo</small></span></label>
+                <label class="chip"><input type="radio" name="plan" value="concierge" /><span>Concierge <small>$299/mo</small></span></label>
+                <label class="chip"><input type="radio" name="plan" value="unsure" /><span>Not sure yet</span></label>
+              </div>
+              <p class="field-hint">Early pricing. <a href="#pricing">See what’s in each plan</a>.</p>
+            </fieldset>
+
+            <details class="more">
               <summary><span>More details <span class="opt">(optional)</span></span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron" /></svg></summary>
               <div class="more-body">
                 <div class="row-2">
@@ -791,20 +759,9 @@
                   <label for="f-gbp">Google Business Profile link</label>
                   <input class="input" id="f-gbp" name="gbp" type="text" inputmode="url" placeholder="maps.app.goo.gl/…" />
                 </div>
-                <div class="row-2">
-                  <div class="field">
-                    <label for="f-phone">Phone</label>
-                    <input class="input" id="f-phone" name="phone" type="tel" autocomplete="tel" />
-                  </div>
-                  <div class="field">
-                    <label for="f-plan">Plan you’d start on</label>
-                    <select class="input" id="f-plan" name="plan">
-                      <option value="">Not sure yet</option>
-                      <option value="starter">Shield Starter ($79/mo)</option>
-                      <option value="pro">Shield Pro ($149/mo)</option>
-                      <option value="concierge">Shield Concierge ($299/mo)</option>
-                    </select>
-                  </div>
+                <div class="field">
+                  <label for="f-phone">Phone</label>
+                  <input class="input" id="f-phone" name="phone" type="tel" autocomplete="tel" />
                 </div>
               </div>
             </details>
@@ -835,22 +792,19 @@
       </div>
     </section>
 
-    <!-- 6. Pricing, kept quiet -->
+    <!-- 5. Pricing, every price visible -->
     <section class="section" id="pricing" aria-labelledby="pricing-title">
       <div class="container">
-        <div class="measure">
-          <p class="kicker">Pricing</p>
-          <h2 id="pricing-title">What it’ll cost when we open.</h2>
-          <p class="sub">Early-list pricing, locked for 6 months if you convert. Joining the list is free and doesn’t commit you to a plan.</p>
+        <h2 id="pricing-title">What it’ll cost when we open</h2>
+        <p class="sub">Early pricing, locked for 6 months if you convert. Joining the waitlist is free and doesn’t commit you to a plan.</p>
 
-          <article class="plan plan-main" aria-labelledby="plan-starter">
+        <div class="plans">
+          <article class="plan" aria-labelledby="plan-starter">
             <div class="plan-top">
-              <div>
-                <h3 id="plan-starter">Shield Starter</h3>
-                <p class="plan-desc">One location: paced, policy-safe review asks and a playbook ready for a bad week.</p>
-              </div>
+              <h3 id="plan-starter">Shield Starter</h3>
               <p class="price">$79<small>/mo</small></p>
             </div>
+            <p class="plan-desc">One location: paced, policy-safe review asks and a playbook ready for a bad week.</p>
             <ul>
               <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>1 location</li>
               <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Paced post-visit review asks</li>
@@ -858,84 +812,65 @@
               <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Restriction &amp; attack playbook</li>
               <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Email support</li>
             </ul>
-            <a class="btn btn-primary" href="#waitlist" data-plan="starter">Join the waitlist<span class="sr-only"> for Shield Starter</span></a>
+            <a class="btn btn-ghost" href="#waitlist" data-plan="starter">Join with Starter</a>
           </article>
 
-          <details class="more plans-more">
-            <summary><span>Two locations, or under active attack? <span class="opt">Pro $149 · Concierge $299</span></span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron" /></svg></summary>
-            <div class="plans-more-body">
-              <article class="plan" aria-labelledby="plan-pro">
-                <div class="plan-top">
-                  <h3 id="plan-pro">Shield Pro</h3>
-                  <p class="price">$149<small>/mo</small></p>
-                </div>
-                <p class="plan-desc">Practices with a PMS, POS, or CRM to connect for stronger evidence.</p>
-                <ul>
-                  <li class="plus">Everything in Starter, plus:</li>
-                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>POS / CRM connect</li>
-                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Up to 2 locations</li>
-                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Priority evidence-pack assist (2/mo)</li>
-                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Slack + email support</li>
-                </ul>
-                <a class="btn btn-ghost" href="#waitlist" data-plan="pro">Join the waitlist<span class="sr-only"> for Shield Pro</span></a>
-              </article>
-
-              <article class="plan" aria-labelledby="plan-concierge">
-                <div class="plan-top">
-                  <h3 id="plan-concierge">Shield Concierge</h3>
-                  <p class="price">$299<small>/mo</small></p>
-                </div>
-                <p class="plan-desc">Multi-location groups, or owners under active attack.</p>
-                <ul>
-                  <li class="plus">Everything in Pro, plus:</li>
-                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Multi-location (fair use)</li>
-                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Hands-on evidence packs</li>
-                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Attack &amp; restriction war-room</li>
-                  <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Quarterly GBP health review</li>
-                </ul>
-                <a class="btn btn-ghost" href="#waitlist" data-plan="concierge">Join the waitlist<span class="sr-only"> for Shield Concierge</span></a>
-              </article>
+          <article class="plan" aria-labelledby="plan-pro">
+            <div class="plan-top">
+              <h3 id="plan-pro">Shield Pro</h3>
+              <p class="price">$149<small>/mo</small></p>
             </div>
-          </details>
+            <p class="plan-desc">Up to 2 locations, with your POS or CRM connected for stronger evidence.</p>
+            <ul>
+              <li class="plus">Everything in Starter, plus:</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>POS / CRM connect</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Up to 2 locations</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Priority evidence-pack assist (2/mo)</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Slack + email support</li>
+            </ul>
+            <a class="btn btn-ghost" href="#waitlist" data-plan="pro">Join with Pro</a>
+          </article>
 
-          <p class="addon"><strong>Add-on: Evidence Pack Concierge — $199</strong> per open fake-review case. The first 20 qualifying owners get their evidence-pack review free.</p>
+          <article class="plan" aria-labelledby="plan-concierge">
+            <div class="plan-top">
+              <h3 id="plan-concierge">Shield Concierge</h3>
+              <p class="price">$299<small>/mo</small></p>
+            </div>
+            <p class="plan-desc">Groups with 3+ locations, or any owner under active attack.</p>
+            <ul>
+              <li class="plus">Everything in Pro, plus:</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Multi-location (fair use)</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Hands-on evidence packs</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Attack &amp; restriction war-room</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check" /></svg>Quarterly GBP health review</li>
+            </ul>
+            <a class="btn btn-ghost" href="#waitlist" data-plan="concierge">Join with Concierge</a>
+          </article>
         </div>
+
+        <p class="addon"><strong>Add-on: Evidence Pack Concierge — $199</strong> per open fake-review case. The first 20 qualifying owners get their evidence-pack review free.</p>
       </div>
     </section>
 
-    <!-- 7. FAQ -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
+    <!-- 6. FAQ: only what blocks signup -->
+    <section class="section band" id="faq" aria-labelledby="faq-title">
       <div class="container faq-grid">
         <div class="faq-side">
-          <p class="kicker">FAQ</p>
-          <h2 id="faq-title">Straight answers.</h2>
-          <p class="sub">Including when GBP Shield isn’t the right fit for you.</p>
+          <h2 id="faq-title">Before you join</h2>
           <a class="btn btn-ghost" href="#waitlist">Join the waitlist</a>
         </div>
         <div class="faq-list">
           <details>
             <summary>Do you guarantee Google will remove a fake review?<span class="plus-ic" aria-hidden="true"></span></summary>
-            <p class="answer">No. Nobody can — Google alone decides. We maximize the quality of your report and appeal with policy citations and visit/POS no-match evidence.</p>
+            <p class="answer">No. Nobody can — Google alone decides. We make your report and appeal as strong as they can be, with policy citations and visit/POS no-match evidence.</p>
           </details>
           <details>
             <summary>How is GBP Shield different from GatherUp Review Defense?<span class="plus-ic" aria-hidden="true"></span></summary>
             <p class="answer">GatherUp is a broader review platform, and Review Defense runs roughly $50–$375/mo. If it already covers you, stay there. GBP Shield is narrower: evidence packs built from your own visit and POS records, for high-ticket dental, med spa, and HVAC businesses.</p>
           </details>
           <details>
-            <summary>Is this compliant with Google’s review policies?<span class="plus-ic" aria-hidden="true"></span></summary>
-            <p class="answer">Yes, by design. We don’t incentivize, gate, or buy reviews, and we don’t auto-post AI replies. Asks only go out after real visits, they’re optional for the customer, and they’re paced so they never spike.</p>
-          </details>
-          <details>
-            <summary>What if someone is extorting me with fake 1-star reviews?<span class="plus-ic" aria-hidden="true"></span></summary>
-            <p class="answer">Don’t pay. Document every message, report it through Google’s merchant extortion channels, and back the report with an evidence pack and a clear report trail. Concierge includes an attack war-room playbook.</p>
-          </details>
-          <details>
-            <summary>What do the first 20 waitlist members get?<span class="plus-ic" aria-hidden="true"></span></summary>
-            <p class="answer">The first 20 qualifying dental, med spa, and HVAC owners get a free evidence-pack review (if you have an open fake-review case) and a 15-minute GBP risk teardown. Early pricing is locked for 6 months if you convert.</p>
-          </details>
-          <details>
-            <summary>Does joining the waitlist cost anything?<span class="plus-ic" aria-hidden="true"></span></summary>
-            <p class="answer">No. Joining is free and doesn’t commit you to a plan. We’ll only email you about GBP Shield early access and your evidence pack.</p>
+            <summary>What happens after I join the waitlist?<span class="plus-ic" aria-hidden="true"></span></summary>
+            <p class="answer">Joining is free and doesn’t commit you to a plan. If you’re one of the first 20 qualifying owners, we’ll email you to book a 15-minute GBP risk teardown, and if you have an open fake-review case, we’ll go through your evidence with you at no cost. Everyone on the list gets early pricing, locked for 6 months if you convert.</p>
           </details>
         </div>
       </div>
@@ -950,10 +885,10 @@
             <svg class="brand-mark" aria-hidden="true" focusable="false"><use href="#mark" /></svg>
             <span>GBP Shield</span>
           </a>
-          <p class="footer-tag">Evidence packs for fake-review appeals, plus paced, policy-safe review asks. For dental, med spa, and HVAC.</p>
+          <p class="footer-tag">Visit-linked evidence packs for fake-review appeals, plus compliant post-visit review asks. For dental, med spa, and HVAC.</p>
         </div>
         <nav class="footer-links" aria-label="Footer">
-          <a href="#pack">Evidence pack</a>
+          <a href="#what">What you get</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
           <a href="#waitlist">Join the waitlist</a>
@@ -996,10 +931,11 @@
       var PLANS = {
         starter: 'Shield Starter ($79/mo)',
         pro: 'Shield Pro ($149/mo)',
-        concierge: 'Shield Concierge ($299/mo)'
+        concierge: 'Shield Concierge ($299/mo)',
+        unsure: 'Not sure yet'
       };
       // Order here is the order fields appear in the notification email.
-      var FIELDS = ['name', 'email', 'vertical', 'open_case', 'business', 'city', 'website', 'gbp', 'phone', 'plan'];
+      var FIELDS = ['name', 'email', 'vertical', 'locations', 'open_case', 'plan', 'business', 'city', 'website', 'gbp', 'phone'];
       var params = new URLSearchParams(window.location.search);
 
       // ---- Mobile menu ----------------------------------------------------
@@ -1024,26 +960,12 @@
 
       // ---- Plan preselect (pricing buttons and ?plan=) ---------------------
       var form = document.getElementById('waitlist-form');
-      var planSelect = document.getElementById('f-plan');
-      var planNote = document.getElementById('plan-note');
-      var planName = document.getElementById('plan-name');
-
-      function renderPlan() {
-        planNote.hidden = !planSelect.value;
-        planName.textContent = PLANS[planSelect.value] || '';
-      }
 
       function setPlan(key) {
-        if (!PLANS[key]) return;
-        planSelect.value = key;
-        renderPlan();
+        if (!Object.prototype.hasOwnProperty.call(PLANS, key)) return;
+        form.elements.plan.value = key;
       }
 
-      planSelect.addEventListener('change', renderPlan);
-      document.getElementById('plan-change').addEventListener('click', function () {
-        document.getElementById('more').open = true;
-        planSelect.focus();
-      });
       Array.prototype.forEach.call(document.querySelectorAll('[data-plan]'), function (el) {
         el.addEventListener('click', function () { setPlan(el.getAttribute('data-plan')); });
       });
