@@ -343,8 +343,9 @@
       .float-match { display: none; }
     }
 
-    /* Hero visual motion. JS adds .is-in once in view (entrance, ~1.1s), then .is-idle (ambient loops),
-       and toggles .is-active with visibility so loops pause off-screen. Transform/opacity only: no layout shift.
+    /* Hero visual motion. JS adds .is-in once in view (entrance + one-shot scan → resolve, ~2.45s), then .is-idle
+       (ambient loops + a rare light .is-rescanning pass), and toggles .is-active with visibility so loops pause off-screen.
+       Transform/opacity only (row shimmer is a paint-only background sweep): no layout shift.
        Entrance keyframes fill backwards only, so finished elements fall back to their resting styles. */
     .visual { --ease-out: cubic-bezier(.22, 1, .36, 1); }
     @media (prefers-reduced-motion: no-preference) {
@@ -358,14 +359,58 @@
     @keyframes ep-float-in { from { opacity: 0; transform: translateY(10px) scale(.96); } }
     .visual.is-in:not(.is-idle)::before { animation: ep-glow-in .9s var(--ease-out) backwards; }
     .visual.is-in:not(.is-idle) .pack { animation: ep-pack-in .6s var(--ease-out) 40ms backwards; }
-    .visual.is-in:not(.is-idle) .review { animation: ep-rise .46s var(--ease-out) 160ms backwards; }
-    .visual.is-in:not(.is-idle) .checks li { animation: ep-rise .42s var(--ease-out) 260ms backwards; }
-    .visual.is-in:not(.is-idle) .checks li:nth-child(2) { animation-delay: 350ms; }
-    .visual.is-in:not(.is-idle) .checks li:nth-child(3) { animation-delay: 440ms; }
-    .visual.is-in:not(.is-idle) :is(.cite, .pack-foot) { animation: ep-rise .42s var(--ease-out) 520ms backwards; }
-    .visual.is-in:not(.is-idle) .tag-gold { animation: ep-stamp .36s var(--ease-out) 600ms backwards; }
+    .visual.is-in:not(.is-idle) .review { animation: ep-rise .46s var(--ease-out) 320ms backwards; }
+    .visual.is-in:not(.is-idle) .checks li { animation: ep-rise .42s var(--ease-out) var(--row-at) backwards; }
+    .visual.is-in:not(.is-idle) .cite { animation: ep-rise .42s var(--ease-out) 1.75s backwards; }
+    .visual.is-in:not(.is-idle) .tag-gold { animation: ep-stamp .36s var(--ease-out) 1.9s backwards; }
+    .visual.is-in:not(.is-idle) .pack-foot { animation: ep-rise .42s var(--ease-out) 2s backwards; }
+    .visual.is-in:not(.is-idle) .mini-btn { animation: ep-stamp .3s var(--ease-out) 2.12s backwards; }
     .visual.is-in:not(.is-idle) .float-alert { animation: ep-float-in .4s var(--ease-out) 660ms backwards; }
     .visual.is-in:not(.is-idle) .float-match { animation: ep-float-in .36s var(--ease-out) 740ms backwards; }
+
+    /* Pack interior "live scan": a line sweeps the pack, the review gets Flagged, then each check row shimmers with a
+       pulsing icon (result hidden by opacity only, text untouched) and resolves just after the line passes it. */
+    .visual .pack { position: relative; }
+    .pack-scan { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; pointer-events: none; }
+    .pack-scan::before {
+      content: ""; position: absolute; inset: 0; opacity: 0; transform: translateY(-100%);
+      background: linear-gradient(180deg, transparent calc(100% - 72px), rgba(86, 199, 184, .08) calc(100% - 2px), rgba(143, 224, 212, .6) calc(100% - 2px));
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+    }
+    .visual .checks li { --row-at: 520ms; --rescan-at: 320ms; }
+    .visual .checks li:nth-child(2) { --row-at: 740ms; --rescan-at: 470ms; }
+    .visual .checks li:nth-child(3) { --row-at: 960ms; --rescan-at: 620ms; }
+    .visual .checks li::before {
+      content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: 0;
+      background: linear-gradient(100deg, transparent 35%, rgba(143, 224, 212, .1) 50%, transparent 65%) 100% 0 / 250% 100% no-repeat;
+    }
+    .visual .review .tag-danger { position: relative; }
+    .visual .review .tag-danger::after {
+      content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none; opacity: 0;
+      box-shadow: 0 0 0 3px rgba(255, 138, 128, .16), 0 0 14px rgba(255, 138, 128, .4);
+    }
+    @keyframes ep-scan { 0% { opacity: 0; transform: translateY(-100%); } 8%, 90% { opacity: 1; } 100% { opacity: 0; transform: translateY(0); } }
+    @keyframes ep-shimmer { 0% { opacity: 0; background-position: 100% 0; } 25%, 75% { opacity: 1; } 100% { opacity: 0; background-position: 0 0; } }
+    @keyframes ep-flag-pulse { 30% { opacity: 1; } 100% { opacity: 0; transform: scale(1.2); } }
+    /* Row icon: two dim pulses while scanning (0–60%), then a small pop back to rest as the row resolves. */
+    @keyframes ep-ic-scan {
+      0%, 30%, 60% { opacity: .35; transform: scale(.88); }
+      15%, 45% { opacity: .8; transform: scale(.94); }
+      78% { opacity: 1; transform: scale(1.1); }
+    }
+    .visual.is-in:not(.is-idle) .pack-scan::before { animation: ep-scan 1.9s linear 200ms; }
+    .visual.is-in:not(.is-idle) .review .tag-danger { animation: ep-stamp .36s var(--ease-out) 760ms backwards; }
+    .visual.is-in:not(.is-idle) .review .tag-danger::after { animation: ep-flag-pulse .9s ease-out 860ms; }
+    .visual.is-in:not(.is-idle) .checks li::before { animation: ep-shimmer .6s linear var(--row-at); }
+    .visual.is-in:not(.is-idle) .checks .ic { animation: ep-ic-scan 1s ease-in-out var(--row-at) backwards; }
+    .visual.is-in:not(.is-idle) .checks .result { animation: ep-stamp .32s var(--ease-out) calc(var(--row-at) + 600ms) backwards; }
+
+    /* Rare light re-scan while idle (JS, every 14–18s, 1.2s): scan line + row shimmer only.
+       Results, Flagged and Ready to file are never re-hidden or re-stamped. */
+    .visual.is-idle.is-rescanning .pack-scan { opacity: .5; }
+    .visual.is-idle.is-rescanning .pack-scan::before { animation: ep-scan 1.2s linear; }
+    .visual.is-idle.is-rescanning .checks li::before { animation: ep-shimmer .45s linear var(--rescan-at); }
 
     /* Idle: every loop starts and ends at the resting state so the hand-off from entrance is seamless.
        Floats bob via `translate` so hover can still use `transform`. The pack itself stays still. */
@@ -764,6 +809,7 @@
                 <span>Appeal draft + 4 exhibits</span>
                 <span class="mini-btn">Export PDF</span>
               </div>
+              <span class="pack-scan" aria-hidden="true"></span>
             </div>
             <figcaption>Illustrative sample — not a real case or outcome.</figcaption>
           </figure>
@@ -1119,24 +1165,49 @@
   </footer>
 
   <script>
-    // ---- Hero visual motion (.is-in -> .is-idle; .is-active while on-screen) ----
+    // ---- Hero visual motion (.is-in -> .is-idle; .is-active while on-screen; rare .is-rescanning) ----
     (function () {
       'use strict';
 
       var visual = document.querySelector('.visual');
       if (!visual) return;
-      var IDLE_AFTER_MS = 1150; // entrance timeline in CSS ends at ~1100ms
+      var IDLE_AFTER_MS = 2600; // entrance + scan -> resolve timeline in CSS ends at ~2450ms
+      var RESCAN_MS = 1200;     // matches the .is-rescanning animations in CSS
+      var rescanTimer = 0;
 
       function enter() {
         visual.classList.add('is-in');
-        setTimeout(function () { visual.classList.add('is-idle'); }, IDLE_AFTER_MS);
+        setTimeout(function () {
+          visual.classList.add('is-idle');
+          syncRescan();
+        }, IDLE_AFTER_MS);
       }
 
-      // Reduced motion: final state immediately, no entrance or idle loops.
+      // Rare light re-scan every 14-18s, only while idle, on-screen and the tab is visible.
+      function canRescan() {
+        return visual.classList.contains('is-idle') && visual.classList.contains('is-active') && !document.hidden;
+      }
+      function syncRescan() {
+        if (!canRescan()) {
+          clearTimeout(rescanTimer);
+          rescanTimer = 0;
+        } else if (!rescanTimer) {
+          rescanTimer = setTimeout(function () {
+            rescanTimer = 0;
+            if (!canRescan()) return;
+            visual.classList.add('is-rescanning');
+            setTimeout(function () { visual.classList.remove('is-rescanning'); }, RESCAN_MS);
+            syncRescan();
+          }, 14000 + Math.random() * 4000);
+        }
+      }
+
+      // Reduced motion: final state immediately, no entrance, idle loops or re-scan.
       if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         visual.classList.add('is-in', 'is-active');
         return;
       }
+      document.addEventListener('visibilitychange', syncRescan);
       if (!('IntersectionObserver' in window)) {
         visual.classList.add('is-active');
         enter();
@@ -1146,6 +1217,7 @@
       new IntersectionObserver(function (entries) {
         var entry = entries[entries.length - 1];
         visual.classList.toggle('is-active', entry.isIntersecting);
+        syncRescan();
         if (entry.intersectionRatio >= 0.2 && !visual.classList.contains('is-in')) enter();
       }, { threshold: [0, 0.2] }).observe(visual);
     })();
