@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fake Google reviews hurting your Map Pack? | GBP Shield</title>
+  <title>Evidence packs for fake Google reviews | GBP Shield</title>
   <meta name="description" content="Fake Google reviews can knock you out of the Map Pack. GBP Shield builds visit-linked evidence packs for appeals. For dental, med spa &amp; HVAC owners." />
   <link rel="canonical" href="http://147.93.2.73:3080/" />
   <meta name="theme-color" content="#0a1014" />
@@ -15,7 +15,7 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="GBP Shield" />
-  <meta property="og:title" content="Fake Google reviews hurting your Map Pack? | GBP Shield" />
+  <meta property="og:title" content="Evidence packs for fake Google reviews | GBP Shield" />
   <meta property="og:description" content="Fake Google reviews can knock you out of the Map Pack. GBP Shield builds visit-linked evidence packs for appeals. For dental, med spa &amp; HVAC owners." />
   <meta property="og:url" content="http://147.93.2.73:3080/" />
   <meta property="og:image" content="http://147.93.2.73:3080/assets/og.png" />
@@ -24,7 +24,7 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="GBP Shield — Protect your Map Pack from fake Google reviews. Dental, med spa, HVAC." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fake Google reviews hurting your Map Pack? | GBP Shield" />
+  <meta name="twitter:title" content="Evidence packs for fake Google reviews | GBP Shield" />
   <meta name="twitter:description" content="Fake Google reviews can knock you out of the Map Pack. GBP Shield builds visit-linked evidence packs for appeals. For dental, med spa &amp; HVAC owners." />
   <meta name="twitter:url" content="http://147.93.2.73:3080/" />
   <meta name="twitter:image" content="http://147.93.2.73:3080/assets/og.png" />
@@ -112,12 +112,6 @@
       fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
     }
 
-    /* Background: one soft wash behind the hero, nothing else. */
-    .page-bg {
-      position: absolute; inset: 0 0 auto 0; height: 900px; z-index: -1; pointer-events: none;
-      background: radial-gradient(900px 520px at 15% -10%, rgba(86, 199, 184, .08), transparent 70%);
-    }
-
     /* Buttons */
     .btn {
       --h: 48px;
@@ -177,27 +171,48 @@
     @media (min-width: 800px) { .mobile-menu { display: none !important; } }
     @media (max-width: 379px) { .hide-xs { display: none; } }
 
-    /* Hero: who it's for, the problem, the offer, and the CTA on the left; the sample pack on the right.
-       One job per line, stepping down in size: eyebrow sits tight on the H1, the lead stays close under it,
-       the CTA row gets the most air, then the perk line and the quietest honesty line. */
-    .hero { position: relative; padding: 64px 0 80px; }
+    /* Hero: the H1 names the offer and the buyer, one line on Map Pack risk, then one short action (email +
+       business type). The sample pack sits on the right as the thing we sell. Gold marks two phrases and the button. */
+    .hero { position: relative; padding: 56px 0 72px; }
     .hero-grid { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr); gap: 56px; align-items: center; }
-    .eyebrow { color: var(--muted); font-size: .875rem; font-weight: 500; }
     .hero h1 {
-      margin-top: 10px; font-weight: 600;
-      font-size: clamp(2.25rem, 4.6vw, 3.3rem); line-height: 1.06; letter-spacing: -.03em; text-wrap: balance;
+      font-weight: 600;
+      font-size: clamp(2rem, 3.5vw, 2.6rem); line-height: 1.1; letter-spacing: -.025em; text-wrap: balance;
     }
     .hero h1 strong { color: var(--gold); font-weight: inherit; }
-    .lead { max-width: 34em; margin-top: 18px; color: var(--muted); font-size: clamp(1.06rem, 1.5vw, 1.16rem); line-height: 1.55; text-wrap: pretty; }
+    .lead { max-width: 34em; margin-top: 16px; color: var(--muted); font-size: clamp(1.02rem, 1.4vw, 1.1rem); line-height: 1.55; text-wrap: pretty; }
     .lead strong { color: var(--text); font-weight: 600; }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-    .cta-note { max-width: 36em; margin-top: 14px; color: var(--muted); font-size: .9rem; line-height: 1.5; }
-    .trust-line { margin-top: 4px; color: var(--subtle); font-size: .8rem; }
+    .trust-line { margin-top: 16px; color: var(--subtle); font-size: .8rem; }
+
+    /* Hero action: joins the waitlist on its own, then carries email + business type into the full form below. */
+    .quick { max-width: 30rem; margin-top: 28px; }
+    .quick-fields { display: grid; grid-template-columns: minmax(0, 1fr) 10.5rem; gap: 10px; }
+    .quick-go { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 10px; }
+    .quick-go p { color: var(--muted); font-size: .9rem; }
+    .quick-error { margin-top: 12px; color: #ffd6d1; font-size: .9rem; }
+    .quick-error a { color: #fff; font-weight: 600; }
+    .quick-done { max-width: 30rem; margin-top: 28px; padding: 18px 20px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--surface); }
+    .quick-done:focus { outline: none; }
+    .quick-done p + p { margin-top: 6px; color: var(--muted); font-size: .94rem; }
+    .quick-done a { color: var(--text); font-weight: 600; text-underline-offset: 3px; }
 
     /* Evidence pack (illustrative) */
     .visual { position: relative; isolation: isolate; width: 100%; max-width: 540px; margin: 0 auto; }
-    .visual figcaption { margin-top: 12px; text-align: center; color: var(--subtle); font-size: .78rem; }
-    .pack { position: relative; padding: 18px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--surface); }
+    .visual figcaption { margin-top: 14px; text-align: center; color: var(--subtle); font-size: .78rem; }
+    .pack { --pad: 18px; position: relative; padding: var(--pad); border-radius: 12px; border: 1px solid var(--line-2); background: var(--surface); }
+
+    /* Annotations: three numbered pins on the pack's left edge, keyed by the list in the caption. */
+    .pin {
+      display: inline-grid; place-items: center; flex: none; width: 20px; height: 20px; border-radius: 50%;
+      border: 1px solid var(--line-2); background: var(--bg); color: var(--text);
+      font-size: .68rem; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums;
+    }
+    .pack .pin { position: absolute; left: calc(-1 * var(--pad) - 11px); top: 12px; }
+    .pack .checks .pin { top: 50%; transform: translateY(-50%); }
+    .pack-foot .pin { top: calc(50% + 7px); transform: translateY(-50%); }
+    .pack-notes { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin: 0; padding: 0; color: var(--muted); font-size: .8rem; }
+    .pack-notes li { display: inline-flex; align-items: center; gap: 7px; }
+    .pack-notes + p { margin-top: 8px; }
     .pack-head {
       display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 12px;
       padding-bottom: 14px; border-bottom: 1px solid var(--line);
@@ -214,7 +229,7 @@
     .tag-gold { color: var(--gold-2); background: rgba(241, 181, 69, .12); border: 1px solid rgba(241, 181, 69, .3); }
     .tag-danger { color: var(--danger); background: rgba(255, 138, 128, .1); border: 1px solid rgba(255, 138, 128, .3); }
     .review {
-      display: flex; gap: 12px; margin: 14px 0; padding: 14px; border-radius: 8px;
+      position: relative; display: flex; gap: 12px; margin: 14px 0; padding: 14px; border-radius: 8px;
       background: rgba(255, 255, 255, .02); border: 1px solid var(--line);
     }
     .avatar {
@@ -252,7 +267,7 @@
     .cite p { margin-top: 4px; color: var(--muted); font-size: .82rem; line-height: 1.45; }
     .cite strong { color: var(--text); font-weight: 600; }
     .pack-foot {
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px;
       margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--subtle); font-size: .8rem;
     }
     .mini-btn { padding: 6px 10px; border-radius: 6px; border: 1px solid var(--line-2); color: var(--text); font-size: .78rem; font-weight: 600; white-space: nowrap; }
@@ -263,8 +278,9 @@
     }
     @media (max-width: 640px) {
       .container { padding-inline: 18px; }
-      .cta-row .btn { width: 100%; }
-      .pack { padding: 14px; }
+      .quick-fields { grid-template-columns: 1fr; }
+      .quick-go .btn { width: 100%; }
+      .pack { --pad: 14px; }
     }
 
     /* Pack motion: one shot, no loops. JS adds .is-in the first time the pack is about a third in view; it fades in,
@@ -285,7 +301,7 @@
     .pack-scan { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; pointer-events: none; }
     .pack-scan::before {
       content: ""; position: absolute; inset: 0; opacity: 0; transform: translateY(-100%);
-      background: linear-gradient(180deg, transparent calc(100% - 72px), rgba(86, 199, 184, .08) calc(100% - 2px), rgba(143, 224, 212, .6) calc(100% - 2px));
+      background: linear-gradient(180deg, transparent calc(100% - 72px), rgba(238, 243, 242, .05) calc(100% - 2px), rgba(238, 243, 242, .45) calc(100% - 2px));
       -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
       mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
     }
@@ -294,7 +310,7 @@
     .visual .checks li:nth-child(3) { --row-at: 960ms; }
     .visual .checks li::before {
       content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: 0;
-      background: linear-gradient(100deg, transparent 35%, rgba(143, 224, 212, .1) 50%, transparent 65%) 100% 0 / 250% 100% no-repeat;
+      background: linear-gradient(100deg, transparent 35%, rgba(238, 243, 242, .07) 50%, transparent 65%) 100% 0 / 250% 100% no-repeat;
     }
     @keyframes ep-scan { 0% { opacity: 0; transform: translateY(-100%); } 8%, 90% { opacity: 1; } 100% { opacity: 0; transform: translateY(0); } }
     @keyframes ep-shimmer { 0% { opacity: 0; background-position: 100% 0; } 25%, 75% { opacity: 1; } 100% { opacity: 0; background-position: 0 0; } }
@@ -417,6 +433,12 @@
     .input::placeholder { color: #75888e; }
     .input:hover { border-color: #41596a; }
     .input:focus { outline: none; border-color: var(--muted); box-shadow: 0 0 0 3px rgba(180, 193, 195, .18); }
+    select.input {
+      -webkit-appearance: none; appearance: none; padding-right: 40px; cursor: pointer;
+      background: #0b1317 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b4c1c3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center / 16px;
+    }
+    select.input:invalid { color: #75888e; }
+    select.input option { color: var(--text); }
     .chips { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
     .chips-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .chip { position: relative; display: block; }
@@ -498,7 +520,6 @@
       <path d="M16 23.5s-5.5-5.1-5.5-9.1a5.5 5.5 0 0 1 11 0c0 4-5.5 9.1-5.5 9.1Z" fill="#0a1014" />
       <circle cx="16" cy="14.3" r="2.1" fill="#f1b545" />
     </symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" /></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></symbol>
@@ -511,7 +532,6 @@
   </svg>
 
   <a class="skip" href="#main">Skip to content</a>
-  <div class="page-bg" aria-hidden="true"></div>
 
   <header class="site-header">
     <div class="container nav">
@@ -539,18 +559,42 @@
   </header>
 
   <main id="main">
-    <!-- 1. Who, problem, offer, CTA. The sample pack sits beside it as proof of the artifact. -->
+    <!-- 1. Offer + buyer, one short action, and the sample pack beside it as the thing we sell. -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div>
-          <p class="eyebrow">For dental, med spa &amp; HVAC owners · best fit at 3–10 locations</p>
-          <h1 id="hero-title"><strong>Fake 1-star reviews</strong> can knock you out of Google’s <strong>Map Pack</strong>.</h1>
-          <p class="lead">GBP Shield builds a visit-linked <strong>evidence pack</strong> for each appeal, sends compliant review asks after real visits, and guides your recovery.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary btn-lg" href="#waitlist">Join the waitlist<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></a>
-            <a class="btn btn-ghost btn-lg" href="#pricing">Plans from $79/mo</a>
+          <h1 id="hero-title"><strong>Evidence packs</strong> for <strong>fake Google reviews</strong>, for dental, med spa, and HVAC owners.</h1>
+          <p class="lead">Fake 1-star reviews can knock you out of Google’s <strong>Map Pack</strong>. We check each one against your visit and POS records and draft an appeal that’s ready to file.</p>
+
+          <!-- action/method are the no-JS fallback; with JS this posts to FormSubmit's AJAX endpoint and prefills the full form. -->
+          <form class="quick" id="quick-form" action="https://formsubmit.co/andreserluis@gmail.com" method="POST">
+            <div class="quick-fields">
+              <label class="sr-only" for="q-email">Work email</label>
+              <input class="input" id="q-email" name="email" type="email" autocomplete="email" placeholder="Work email" required />
+              <label class="sr-only" for="q-vertical">Business type</label>
+              <select class="input" id="q-vertical" name="vertical" required>
+                <option value="" disabled selected>Business type</option>
+                <option value="Dental">Dental</option>
+                <option value="Med spa">Med spa</option>
+                <option value="HVAC / home service">HVAC</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="hp" aria-hidden="true"><input name="_honey" type="text" tabindex="-1" autocomplete="off" /></div>
+            <input type="hidden" name="_subject" value="GBP Shield waitlist (quick join)" />
+            <input type="hidden" name="_template" value="table" />
+            <div class="quick-go">
+              <button class="btn btn-primary btn-lg" id="quick-btn" type="submit"><span class="btn-label">Join the waitlist</span></button>
+              <p>No card. We’ll email when a spot is ready.</p>
+            </div>
+            <p class="quick-error" id="quick-error" role="alert" hidden>That didn’t go through. Try again, or use the <a href="#waitlist">full form below</a>.</p>
+          </form>
+
+          <div class="quick-done" id="quick-done" tabindex="-1" hidden>
+            <p><strong>You’re on the list.</strong> We’ll email <span id="quick-email">you</span> when a spot is ready.</p>
+            <p>The first 20 qualifying owners get a free evidence-pack review. <a href="#waitlist">Answer 4 more questions</a> to see if you qualify.</p>
           </div>
-          <p class="cta-note">Free to join. The first 20 qualifying owners get a free evidence-pack review and a 15-minute GBP teardown.</p>
+
           <p class="trust-line">No removal guarantees. No NFC. No AI reply bots.</p>
         </div>
 
@@ -565,6 +609,7 @@
             </div>
 
             <div class="review">
+              <span class="pin">1</span>
               <span class="avatar">JM</span>
               <div class="review-body">
                 <div class="review-top">
@@ -581,6 +626,7 @@
 
             <ul class="checks">
               <li>
+                <span class="pin">2</span>
                 <span class="ic ic-x"><svg class="icon"><use href="#i-x" /></svg></span>
                 <span><strong>Appointment match</strong><small>No visit in PMS, last 18 months</small></span>
                 <span class="result r-bad">No match</span>
@@ -603,12 +649,20 @@
             </div>
 
             <div class="pack-foot">
+              <span class="pin">3</span>
               <span>Appeal draft + 4 exhibits</span>
               <span class="mini-btn">Export PDF</span>
             </div>
             <span class="pack-scan" aria-hidden="true"></span>
           </div>
-          <figcaption>Illustrative sample — not a real case or outcome.</figcaption>
+          <figcaption>
+            <ol class="pack-notes">
+              <li><span class="pin" aria-hidden="true">1</span>Suspicious review</li>
+              <li><span class="pin" aria-hidden="true">2</span>Checked against visit + POS</li>
+              <li><span class="pin" aria-hidden="true">3</span>Appeal draft, ready to file</li>
+            </ol>
+            <p>Illustrative sample — not a real case or outcome.</p>
+          </figcaption>
         </figure>
       </div>
     </section>
@@ -689,7 +743,7 @@
           <form class="form-card" id="waitlist-form" action="https://formsubmit.co/andreserluis@gmail.com" method="POST">
             <div class="form-head">
               <h3>Get early access</h3>
-              <p>Takes about 30 seconds.</p>
+              <p id="form-note">Takes about 30 seconds.</p>
             </div>
 
             <div class="row-2">
@@ -975,9 +1029,41 @@
       });
       setPlan((params.get('plan') || '').toLowerCase());
 
-      // ---- Waitlist submit -> FormSubmit AJAX -----------------------------
+      // ---- FormSubmit AJAX, shared by the hero and full forms --------------
+      function send(data, subject) {
+        var payload = { _subject: subject, _template: 'table', _gotcha: '', _honey: '' };
+        Object.keys(data).forEach(function (k) { payload[k] = data[k]; });
+        params.forEach(function (v, k) { if (/^utm_/.test(k) && v) payload[k] = v.slice(0, 200); });
+        if (document.referrer) payload.referrer = document.referrer.slice(0, 300);
+
+        var controller = typeof AbortController === 'function' ? new AbortController() : null;
+        var timer = controller && setTimeout(function () { controller.abort(); }, 15000);
+
+        return fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload),
+          signal: controller ? controller.signal : undefined
+        })
+          .then(function (res) {
+            return res.json().catch(function () { return {}; }).then(function (body) {
+              // FormSubmit replies {success: "true"|"false", message}. A not-yet-activated form says "false".
+              if (!res.ok || String(body.success) !== 'true') {
+                throw new Error(body.message || 'HTTP ' + res.status);
+              }
+            });
+          })
+          .then(function () { clearTimeout(timer); }, function (err) { clearTimeout(timer); throw err; });
+      }
+
+      function setBusy(btn, busy) {
+        btn.disabled = busy;
+        btn.setAttribute('aria-busy', String(busy));
+        btn.querySelector('.btn-label').textContent = busy ? 'Sending…' : 'Join the waitlist';
+      }
+
+      // ---- Full waitlist form ---------------------------------------------
       var submitBtn = document.getElementById('submit-btn');
-      var submitLabel = submitBtn.querySelector('.btn-label');
       var errorBox = document.getElementById('form-error');
       var successBox = document.getElementById('form-success');
 
@@ -994,38 +1080,14 @@
           return;
         }
 
-        var payload = { _subject: 'GBP Shield waitlist', _template: 'table', _gotcha: '', _honey: '' };
-        Object.keys(data).forEach(function (k) { payload[k] = data[k]; });
-        params.forEach(function (v, k) { if (/^utm_/.test(k) && v) payload[k] = v.slice(0, 200); });
-        if (document.referrer) payload.referrer = document.referrer.slice(0, 300);
-
-        var controller = typeof AbortController === 'function' ? new AbortController() : null;
-        var timer = controller && setTimeout(function () { controller.abort(); }, 15000);
-        setBusy(true);
-
-        fetch(ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(payload),
-          signal: controller ? controller.signal : undefined
-        })
-          .then(function (res) {
-            return res.json().catch(function () { return {}; }).then(function (body) {
-              // FormSubmit replies {success: "true"|"false", message}. A not-yet-activated form says "false".
-              if (!res.ok || String(body.success) !== 'true') {
-                throw new Error(body.message || 'HTTP ' + res.status);
-              }
-            });
-          })
+        setBusy(submitBtn, true);
+        send(data, 'GBP Shield waitlist')
           .then(function () { showSuccess(data); })
           .catch(function (err) {
             console.error('[waitlist] submission failed:', err);
             showError(data);
           })
-          .then(function () {
-            clearTimeout(timer);
-            setBusy(false);
-          });
+          .then(function () { setBusy(submitBtn, false); });
       });
 
       function collect() {
@@ -1037,12 +1099,6 @@
           if (v) data[k] = v;
         });
         return data;
-      }
-
-      function setBusy(busy) {
-        submitBtn.disabled = busy;
-        submitBtn.setAttribute('aria-busy', String(busy));
-        submitLabel.textContent = busy ? 'Sending…' : 'Join the waitlist';
       }
 
       function showSuccess(data) {
@@ -1059,6 +1115,47 @@
         document.getElementById('mailto-fallback').href = 'mailto:' + FALLBACK_EMAIL +
           '?subject=' + encodeURIComponent('GBP Shield waitlist') + '&body=' + encodeURIComponent(body);
         errorBox.hidden = false;
+      }
+
+      // ---- Hero quick join: email + business type, then carry both into the full form ----
+      var quick = document.getElementById('quick-form');
+      var quickBtn = document.getElementById('quick-btn');
+      var quickError = document.getElementById('quick-error');
+      var quickDone = document.getElementById('quick-done');
+
+      quick.addEventListener('invalid', function () { quick.classList.add('was-validated'); }, true);
+
+      quick.addEventListener('submit', function (e) {
+        e.preventDefault();
+        quickError.hidden = true;
+        var data = { email: quick.elements.email.value.trim(), vertical: quick.elements.vertical.value };
+
+        // Prefill first, so the full form is ready even if this send fails.
+        form.elements.email.value = data.email;
+        form.elements.vertical.value = data.vertical;
+
+        // Honeypot tripped: look successful, send nothing.
+        if (quick.elements._honey.value) {
+          showQuickDone(data);
+          return;
+        }
+
+        setBusy(quickBtn, true);
+        send(data, 'GBP Shield waitlist (quick join)')
+          .then(function () { showQuickDone(data); })
+          .catch(function (err) {
+            console.error('[waitlist] quick join failed:', err);
+            quickError.hidden = false;
+          })
+          .then(function () { setBusy(quickBtn, false); });
+      });
+
+      function showQuickDone(data) {
+        document.getElementById('quick-email').textContent = data.email;
+        document.getElementById('form-note').textContent = 'You’re on the list. These answers decide who gets the first spots.';
+        quick.hidden = true;
+        quickDone.hidden = false;
+        quickDone.focus();
       }
     })();
   </script>
